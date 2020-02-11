@@ -202,7 +202,10 @@
 // About
 //
 .about
-  margin-top: 30px
+  padding-top: 60px
+  margin-top: -4px
+  background: #fff
+  position: relative
 
   &-list
     &-item
@@ -269,7 +272,7 @@
   background-position: center center !important
   background-repeat: no-repeat !important
   margin-top: -82px
-  padding-top: 156px
+  padding-top: 200px
   padding-bottom: 150px
 
   .main-title
@@ -363,6 +366,7 @@
 //
 .home-portfolio
   padding-top: 54px
+  padding-bottom: 85px
 
   .main-title
     margin-bottom: 14px
@@ -380,8 +384,36 @@
     margin: 0
     padding: 0
 
-    li
+    .home-portfolio__item
       list-style: none
+      width: 275px
+      height: 380px
+      overflow: hidden
+      margin: 0 7.5px
+
+    .home-portfolio__item:first-child
+      .home-portfolio__img
+        width: 275px
+        height: 300px
+
+    .wrapper-two-items
+      width: 190px
+
+      .home-portfolio__item:nth-of-type(4n+2)
+        width: 175px
+        height: 180px
+        margin-top: 15px
+
+    .wrapper-two-items .home-portfolio__item
+      width: 175px
+      height: 180px
+
+      .home-portfolio__img
+        width: 175px
+        height: 180px
+
+    .home-portfolio__item:nth-of-type(4n+2)
+      width: 372px
 
   &__link
     display: block
@@ -396,7 +428,7 @@
 
   &__img
     width: 370px
-    height: 370px
+    height: 375px
     background-size: cover !important
     background-position: center center !important
     background-repeat: no-repeat !important
@@ -412,6 +444,8 @@
     align-items: center
     transition: all .3s
     opacity: 0
+    padding: 10px
+    text-align: center
 
     &:before
       content: ''
@@ -431,6 +465,26 @@
       color: var(--theme-color)
       position: relative
       z-index: 3
+
+  .link-button
+    display: inline-block
+    font-size: 18px
+    font-weight: 300
+    color: #fff
+    text-decoration: none
+    transition: all .3s
+    background-color: var(--theme-color)
+    border-radius: 39px
+    padding: 16.5px 40px
+    border: none
+    width: 100%
+    text-align: center
+    margin-top: 15px
+
+    &:hover
+      text-decoration: none
+      background-color: var(--theme-alt-color)
+      color: #fff
 
 
 //
@@ -655,6 +709,376 @@
     .slick-active
       button
         background-color: var(--theme-color)
+
+
+//
+// Feedback
+//
+.feedback
+  background-size: cover !important
+  background-position: center center !important
+  background-repeat: no-repeat !important
+  padding: 250px 0 80px
+  z-index: 2
+  position: relative
+
+  &__list-soc-links
+    margin: 0
+    padding: 0
+
+    li
+      list-style: none
+      margin-bottom: 20px
+
+      *
+        color: #fff
+        white-space: nowrap
+
+      p
+        margin-bottom: 0
+
+  &__img-soc-link
+    margin-right: 10px
+
+  &__form-wrapper
+    background-color: #fff
+
+  &__first
+    width: 229px
+    background: url(../images/bg-feedback-form.jpg)
+    background-repeat: no-repeat !important
+    background-size: cover !important
+    background-position: center center !important
+    padding: 25px
+
+  &__second
+    padding: 20px
+
+  &__title
+    font-weight: bold
+    color: #3d3d3d
+    font-size: 18px
+    margin: 0 0 10px
+
+    span
+      color: var(--theme-alt-color)
+
+  &__text
+    font-weight: 300
+    margin-bottom: 20px
+    color: #3d3d3d
+
+
+  .form-feedback
+    .container_checkbox input
+      position: absolute
+      opacity: 0
+      cursor: pointer
+      height: 0
+      width: 0
+
+    .checkmark
+      position: absolute
+      top: 0
+      left: 0
+      height: 30px
+      width: 30px
+      border-radius: 50%
+      background-color: #f1f1f1
+
+    .container_checkbox:hover input ~ .checkmark
+      background-color: #f1f1f1
+
+    .container_checkbox input:checked ~ .checkmark
+      background-color: #f1f1f1
+
+    .checkmark:before,
+    .checkmark:after
+      content: ""
+      position: absolute
+      display: none
+
+    .checkmark:before
+      display: block
+      content: ""
+      width: 38px
+      height: 38px
+      border: 1px solid #F1F1F1
+      border-radius: 50%
+      top: -4px
+      left: -4px
+
+    .container_checkbox input:checked ~ .checkmark:after
+      display: block
+
+    .container_checkbox .checkmark:after
+      left: 8px
+      top: 10px
+      background: url(../images/check-mark.png)
+      background-repeat: no-repeat !important
+      width: 15px
+      height: 12px
+      content: ""
+
+    .row-custom
+      display: flex
+      margin: 0 0 17px -17px
+
+      span
+        width: 33.33%
+        position: relative
+        margin: 0 17px
+
+        &:before
+          position: absolute
+          content: ""
+          display: block
+          width: 104%
+          height: 131%
+          border: 1px solid #f1f1f1
+          border-radius: 40px
+          left: -4px
+          top: -5px
+
+    .policy-block
+      margin-bottom: 20px
+      display: flex
+      font-weight: 300
+
+      p
+        margin: 4px 0 0 45px
+
+      a
+        text-decoration: underline
+        color: var(--theme-color)
+        transition: all .3s
+
+        &:hover
+          color: var(--theme-alt-color)
+          text-decoration: none
+
+
+      .container_checkbox
+        position: relative
+
+    .wpcf7-submit
+      display: table
+      margin: 0 auto
+      padding: 15px 45px
+      border-radius: 30px
+      border: none
+      background: rgb(52, 57, 131)
+      background: linear-gradient(90deg, rgba(52, 57, 131, 1) 0%, rgba(24, 152, 171, 1) 100%)
+      transition: all .3s
+      color: #fff
+      min-width: 200px
+
+      &:hover
+        opacity: .5
+
+  .submit-wrapper
+    position: relative
+
+    .ajax-loader
+      position: absolute
+      top: 16px
+      left: 50%
+      margin-left: -130px
+
+input[type=email],
+input[type=text]
+  color: #767677
+  font-weight: 300
+  text-align: center
+  border: none
+  background-color: #f1f1f1
+  padding: 6px 10px
+  border-radius: 41px
+  width: 100%
+  position: relative
+
+
+.map-section
+  margin-top: -45px
+
+#map
+  width: 100%
+  height: 580px
+
+
+//
+// Footer
+//
+.footer
+  background: #201f1f
+
+  .footer-main-container
+    margin: 0
+    padding: 0
+    display: flex
+    align-items: center
+
+    a
+      text-decoration: none
+      color: #fff
+      text-transform: uppercase
+      padding-right: 20px
+      transition: all .3s
+
+      &:hover
+        text-decoration: none
+        color: var(--theme-color)
+
+  .footer-logo
+    padding: 10px 0
+    display: block
+
+  &__second
+    margin-top: 20px
+
+    a
+      text-decoration: none
+      color: #fff
+      font-size: 14px
+      transition: all .3s
+
+      &:hover
+        text-decoration: underline
+
+      span
+        color: #74e42a
+
+
+    .bottom-copyright
+      margin-right: 80px
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

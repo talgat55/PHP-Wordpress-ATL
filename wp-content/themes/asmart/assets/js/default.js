@@ -10,9 +10,9 @@ jQuery(document).ready(function () {
     // partnersCarousel();
     // modal();
     // mobileMenu();
-    // phoneMask();
+    phoneMask();
     // backToTop();
-    // map();
+    map();
     // teamCarousel();
     // awardsCarousel();
     // adversisticsCarousel();
@@ -25,6 +25,10 @@ jQuery(document).ready(function () {
     awardsCarousel();
 
 
+    //
+    // Lazy load
+    //
+    jQuery('.lazy').lazy();
     //
     // $('.menu-icon-toggle').on('click', function(e) {
     //     $('body').toggleClass('open');
@@ -99,64 +103,64 @@ jQuery(document).ready(function () {
 //
 //
 
-//
-//
-// function map() {
-//     "use strict";
-//     if (jQuery('#map').length) {
-//         ymaps.ready(function () {
-//             var myMap = new ymaps.Map('map', {
-//                     center: [54.986568, 73.378812],
-//                     zoom: 15,
-//                     controls: [ ]
-//                 }, {
-//                     // searchControlProvider: 'yandex#search'
-//                 }),
-//
-//                 // Создаём макет содержимого.
-//                 /*  MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-//                       '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-//                   ),*/
-//
-//                 myPlacemark = new ymaps.Placemark([54.986568, 73.378812], {
-//                     id: '1'
-//                 }, {
-//
-//                     // Опции.
-//                     // Необходимо указать данный тип макета.
-//                     iconLayout: 'default#image',
-//                     // Своё изображение иконки метки.
-//
-//                     iconImageHref: 'http://maximum.lightxdesign.ru/wp-content/themes/asmart/assets/images/marker.svg',
-//                     // Размеры метки.
-//                     iconImageSize: [40, 40],
-//                     // Смещение левого верхнего угла иконки относительно
-//                     // её "ножки" (точки привязки).
-//                     iconImageOffset: [-20, -40]
-//                 });
-//
-//
-//             myMap.geoObjects
-//
-//                 .add(myPlacemark);
-//
-//             myMap.behaviors.disable('scrollZoom');
-//             myMap.behaviors.disable('drag');
-//             myMap.behaviors.disable('multiTouch');
-//
-//             myMap.controls.add('zoomControl', {
-//                 float: 'none',
-//                 position: {
-//                     right: 40,
-//                     top: 40
-//                 }
-//             });
-//
-//
-//         });
-//     }
-// }
-//
+
+
+function map() {
+    "use strict";
+    if (jQuery('#map').length) {
+        ymaps.ready(function () {
+            var myMap = new ymaps.Map('map', {
+                    center: [54.966241, 73.382522],
+                    zoom: 15,
+                    controls: [ ]
+                }, {
+                    // searchControlProvider: 'yandex#search'
+                }),
+
+                // Создаём макет содержимого.
+                /*  MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                      '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+                  ),*/
+
+                myPlacemark = new ymaps.Placemark([54.966241, 73.382522], {
+                    id: '1'
+                }, {
+
+                    // Опции.
+                    // Необходимо указать данный тип макета.
+                    iconLayout: 'default#image',
+                    // Своё изображение иконки метки.
+
+                    iconImageHref: '/wp-content/themes/asmart/assets/images/marker-map.png',
+                    // Размеры метки.
+                    iconImageSize: [37, 52],
+                    // Смещение левого верхнего угла иконки относительно
+                    // её "ножки" (точки привязки).
+                    iconImageOffset: [-17, -52]
+                });
+
+
+            myMap.geoObjects
+
+                .add(myPlacemark);
+
+            myMap.behaviors.disable('scrollZoom');
+            myMap.behaviors.disable('drag');
+            myMap.behaviors.disable('multiTouch');
+
+            myMap.controls.add('zoomControl', {
+                float: 'none',
+                position: {
+                    right: 40,
+                    top: 90
+                }
+            });
+
+
+        });
+    }
+}
+
 //
 // //----------------------------------
 // //  Mobile Menu
@@ -172,20 +176,20 @@ jQuery(document).ready(function () {
 //         return false;
 //     });
 // }
-//
-// //----------------------------------
-// //  Input phone field Mask
-// //------------------------------------
-// function phoneMask() {
-//     "use strict";
-//     let phone_class = jQuery('.phone-input');
-//     if (phone_class.length) {
-//         phone_class.inputmask({"mask": "+7 (999) 999-9999"});
-//
-//     }
-// }
-//
-//
+
+//----------------------------------
+//  Input phone field Mask
+//------------------------------------
+function phoneMask() {
+    "use strict";
+    let phone_class = jQuery('.phone-input');
+    if (phone_class.length) {
+        phone_class.inputmask({"mask": "+7 (999) 999-9999"});
+
+    }
+}
+
+
 // //----------------------------------
 // //   Home Slider
 // //---------------------------------------

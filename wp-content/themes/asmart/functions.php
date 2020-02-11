@@ -33,20 +33,20 @@ function th_scripts()
     wp_enqueue_style('th-style', get_stylesheet_uri(), array(), '1');
     wp_enqueue_style('main-style', get_theme_file_uri('/assets/css/style.css'), array(), '1');
 //
-//    wp_enqueue_script('aos', get_theme_file_uri('/assets/js/aos.js'), array(), '', true);
+    wp_enqueue_script('lazy', get_theme_file_uri('/assets/js/jquery.lazy.min.js'), array(), '', true);
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', get_theme_file_uri('/assets/js/jquery-3.2.1.min.js'), array(), '');
 //    wp_enqueue_script('jquery-migrate.min', get_theme_file_uri('/assets/js/jquery.matchHeight.js'), array(), '', true);
     wp_enqueue_script('slick.min', get_theme_file_uri('/assets/js/slick.min.js'), array(), '', true);
 //
-//    wp_enqueue_script('jquery.inputmask', get_theme_file_uri('/assets/js/jquery.inputmask.js'), array(), '', true);
+    wp_enqueue_script('jquery.inputmask', get_theme_file_uri('/assets/js/jquery.inputmask.js'), array(), '', true);
 ////
     wp_enqueue_script('lightbox.min.js', get_theme_file_uri('/assets/js/lightbox.js'), array(), '', true);
 //
 //
-//    if (is_page_template('page-contacts.php')) {
-//        wp_enqueue_script('yandex-maps', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '1');
-//    }
+    if (is_page_template('page-contacts.php') || is_front_page()) {
+        wp_enqueue_script('yandex-maps', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '1');
+    }
 
     wp_enqueue_script('default', get_theme_file_uri('/assets/js/default.js'), array(), '1', true);
 }

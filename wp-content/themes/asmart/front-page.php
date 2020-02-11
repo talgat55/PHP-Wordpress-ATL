@@ -10,4 +10,6 @@ get_header(); ?>
 <?php get_template_part('inc/homeReview'); ?>
 <?php get_template_part('inc/homeAwards'); ?>
 <?php get_template_part('inc/homePartners'); ?>
+<?php get_template_part('inc/feedBack'); ?>
+<?php get_template_part('inc/map'); ?>
 <?php get_footer();
