@@ -4,15 +4,16 @@
 
 jQuery(document).ready(function () {
     "use strict";
-    //
+    lasyLoad();
     // sliderHomePage();
     // homePagePortfolioCarousel();
     // partnersCarousel();
     // modal();
     // mobileMenu();
     phoneMask();
+    clientsCarousel();
     // backToTop();
-    map();
+
     // teamCarousel();
     // awardsCarousel();
     // adversisticsCarousel();
@@ -46,11 +47,27 @@ jQuery(document).ready(function () {
 });
 
 
-// jQuery(window).load(function () {
-//
-// });
+window.onload = function(){
+    map();
+};
 
+//----------------------------------
+//   Lasyload
+//---------------------------------------
 
+function lasyLoad() {
+    "use strict";
+
+    var lasyClass = jQuery('.lazy');
+
+    if (lasyClass.length) {
+        lasyClass.lazy({
+            effect: "fadeIn",
+            effectTime: 700,
+        });
+    }
+
+}
 // // ---------------------------------------------------------
 // // Back To Top
 // // ---------------------------------------------------------
@@ -612,6 +629,57 @@ function awardsCarousel() {
 function partnersCarousel() {
     "use strict";
     var carouselWrap = jQuery('.partners__slider');
+
+    if (carouselWrap.length) {
+        carouselWrap.slick({
+            infinite: true,
+            lazyLoad: 'ondemand',
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            arrows: false,
+            dots: true,
+             // autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 1100,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    }
+}
+
+
+//----------------------------------
+//   Clients  carousel
+//---------------------------------------
+
+function clientsCarousel() {
+    "use strict";
+    var carouselWrap = jQuery('.client__items-list');
 
     if (carouselWrap.length) {
         carouselWrap.slick({

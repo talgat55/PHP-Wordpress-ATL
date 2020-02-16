@@ -47,8 +47,8 @@
                             <div class="home-portfolio__title">
                                 <h3><? echo get_the_title($post_id) ?></h3>
                             </div>
-                            <div class="home-portfolio__img"
-                                 style="background: url(<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "service-home-img")[0]; ?>)"></div>
+                            <div class="home-portfolio__img  lazy"
+                                 data-src="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "service-home-img")[0]; ?>"></div>
                         </a>
                         <?php  if ($i == '0') { ?>
                             <a href="#" class="link  link-button">

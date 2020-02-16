@@ -15,11 +15,12 @@ if (function_exists('register_nav_menus')) {
 * Add Feature Imagee
 **/
 add_theme_support('post-thumbnails');
-//add_image_size('cert-img', 260, 366, false);
+add_image_size('client-img', 165, 165, true);
 add_image_size('partners-img', 225, '', false);
 add_image_size('awards-img', 250, 350, true);
 add_image_size('review-img', 210, 60, false);
 add_image_size('portfolio-img', 400, 400, true);
+add_image_size('portfolio-page-img', 360, 359, true);
 add_image_size('service-home-img', 368, 389, true);
 
 
@@ -44,9 +45,9 @@ function th_scripts()
     wp_enqueue_script('lightbox.min.js', get_theme_file_uri('/assets/js/lightbox.js'), array(), '', true);
 //
 //
-    if (is_page_template('page-contacts.php') || is_front_page()) {
+//    if (is_page_template('page-contacts.php') ||  is_page_template('archive.php') || is_front_page()) {
         wp_enqueue_script('yandex-maps', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', array(), '1');
-    }
+//    }
 
     wp_enqueue_script('default', get_theme_file_uri('/assets/js/default.js'), array(), '1', true);
 }
@@ -211,6 +212,32 @@ function post_type_services()
     register_post_type('services', $args);
 }
 
+/*
+*  Register Post Type  Clients
+*/
+add_action('init', 'post_type_clients');
+
+function post_type_clients()
+{
+    $labels = array(
+        'name' => 'Клиенты',
+        'singular_name' => 'Клиенты',
+        'all_items' => 'Клиенты',
+        'menu_name' => 'Клиенты' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => 5,
+        'has_archive' => true,
+        'query_var' => "clients",
+        'supports' => array(
+            'title',
+            'thumbnail'
+        )
+    );
+    register_post_type('clients', $args);
+}
 
 /*
 *  Register Post Type Settings

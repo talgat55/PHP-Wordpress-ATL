@@ -40,6 +40,16 @@
   &_medium
     padding: 15px 50px
 
+  &_alt
+    background-color: var(--theme-color)
+    border-color: var(--theme-color)
+    color: #fff
+
+    &:hover
+      background-color: var(--theme-alt-color)
+      border-color: var(--theme-alt-color)
+      color: #fff
+.post-type-archive-portfolio,
 .home
   .header
     &:before
@@ -49,6 +59,11 @@
       .menu-item
         a
           color: var(--white-color)
+
+.post-type-archive-portfolio .header
+  &:before
+    background-position: center center
+    filter: blur(8px)
 
 //
 // Header
@@ -277,7 +292,6 @@
 // Service
 //
 .service
-  background: url(../images/bg-service.png)
   background-size: cover !important
   background-position: center center !important
   background-repeat: no-repeat !important
@@ -501,7 +515,6 @@
 // Review
 //
 .review
-  background: url(../images/bg-review.jpg)
   background-size: cover !important
   background-position: center center !important
   background-repeat: no-repeat !important
@@ -686,7 +699,9 @@
 // Partners
 //
 .partners
-  margin-bottom: 50px
+  position: relative
+  margin-bottom: -105px
+  z-index: 12
 
   &__item
     height: 90px !important
@@ -720,6 +735,106 @@
       button
         background-color: var(--theme-color)
 
+//
+// Page Portoflio
+//
+.page-portfolio
+  &__list-items
+    margin: 0 0 40px
+    width: 100%
+    padding: 0
+
+    li
+      list-style: none
+      overflow: hidden
+
+  &__img-block
+    width: 360px
+    height: 359px
+    background-size: cover !important
+    background-position: center center !important
+    background-repeat: no-repeat !important
+
+  &__item-wrap
+    display: block
+    overflow: hidden
+    margin-bottom: 30px
+
+  .load-more-wrapper
+    margin-bottom: 70px
+  .map-section
+    margin: 0
+    #map
+      height: 380px
+//
+// Hero
+//
+.hero
+  background-color: #fff
+  height: 440px
+  background-position: center center !important
+  background-repeat: no-repeat !important
+  background-size: cover !important
+
+.page
+  &__main-title
+    position: relative
+    text-align: center
+    font-size: 24px
+    font-weight: 500
+    margin: 0 0 100px
+    top: -5px
+    z-index: 2
+
+    &:before
+      z-index: -1
+      content: ""
+      display: block
+      position: absolute
+      top: -32px
+      left: 50%
+      transform: translateX(-50%)
+      background: url(../images/bg-title.png)
+      background-repeat: no-repeat !important
+      background-position: center center !important
+      width: 821px
+      height: 91px
+
+    &:after
+      content: ""
+      display: block
+      width: 10px
+      height: 10px
+      background: #d0d0d0
+      border-radius: 50%
+      position: absolute
+      bottom: -28px
+      left: 50%
+      transform: translateX(-50%)
+
+//
+// Clients
+//
+.client
+  background-size: cover!important
+  background-position: center center!important
+  background-repeat: no-repeat!important
+  padding: 90px 0  20px
+  margin-top: -50px
+
+  &__item-wrap
+    width: 160px
+    height: 160px
+    background: #fff
+    border-radius: 50%
+    overflow: hidden
+    margin: 0 auto
+
+  .main-title
+    margin-bottom: 30px
+    color: #fff
+
+
 
 //
 // Feedback
@@ -731,6 +846,20 @@
   padding: 250px 0 80px
   z-index: 2
   position: relative
+  overflow: hidden
+
+  &:before
+    content: ''
+    display: block
+    width: 100%
+    height: 330px
+    position: absolute
+    top: -150px
+    left: 0
+    background: url(../images/bg-rounded.svg)
+    background-repeat: no-repeat !important
+    background-size: cover !important
+    background-position: center center
 
   &__list-soc-links
     margin: 0

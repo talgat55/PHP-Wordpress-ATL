@@ -6,7 +6,7 @@
  * Time: 18:29
  */
 ?>
-<section class="review">
+<section class="review  lazy"  data-src="<?php echo get_theme_file_uri('/assets/images/bg-review.jpg'); ?>">
     <div class="container">
         <div class="row">
             <h2 class="main-title w-100">

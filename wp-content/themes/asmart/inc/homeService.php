@@ -6,7 +6,7 @@
  * Time: 18:47
  */
 ?>
-<section class="service">
+<section class="service lazy"  data-src="<?php echo get_theme_file_uri('/assets/images/bg-service.png'); ?>">
     <div class="container">
         <div class="row">
             <h2 class="main-title w-100">
@@ -41,7 +41,7 @@
                             <?php if( $tagNew == 'yes'): ?>
                             <div class="service__tag-new"></div>
                             <?php endif; ?>
-                            <div  class="service__img" style="background: url(<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "service-home-img")[0]; ?>)"></div>
+                            <div  class="service__img lazy" data-src="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "service-home-img")[0]; ?>"></div>
                             <div class="service__text-more">
                                 Подробнее
                             </div>
