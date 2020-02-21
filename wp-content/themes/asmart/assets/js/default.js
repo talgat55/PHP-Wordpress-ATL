@@ -11,6 +11,7 @@ jQuery(document).ready(function () {
     // modal();
     mobileMenu();
     phoneMask();
+    reviewArrowDown();
     clientsCarousel();
     // backToTop();
 
@@ -573,11 +574,13 @@ function reviewSlider() {
                         dots: true,
                     }
                 }
-            ]
-            //   autoplay: true,
+            ],
+            autoplay: true,
         });
     }
 }
+
+
 //----------------------------------
 //   awards  carousel
 //---------------------------------------
@@ -594,7 +597,7 @@ function awardsCarousel() {
             slidesToScroll: 4,
             arrows: false,
             dots: true,
-             // autoplay: true,
+           autoplay: true,
             responsive: [
                 {
                     breakpoint: 1100,
@@ -645,7 +648,7 @@ function partnersCarousel() {
             slidesToScroll: 4,
             arrows: false,
             dots: true,
-             // autoplay: true,
+            autoplay: true,
             responsive: [
                 {
                     breakpoint: 1100,
@@ -696,7 +699,7 @@ function clientsCarousel() {
             slidesToScroll: 4,
             arrows: false,
             dots: true,
-             // autoplay: true,
+            autoplay: true,
             responsive: [
                 {
                     breakpoint: 1100,
@@ -731,7 +734,31 @@ function clientsCarousel() {
 }
 
 
+//----------------------------------
+//   Review  arrow down
+//---------------------------------------
 
+function reviewArrowDown() {
+    "use strict";
+    var clickClass = jQuery('.page-reviews__expand');
+    var clickClassEmpty =  '.page-reviews__expand' ;
+
+    var classActive = 'active';
+    if (clickClass.length) {
+        jQuery('body').on('click', clickClassEmpty, function () {
+            var $this = jQuery(this);
+            if($this.hasClass(classActive)){
+                $this.parent().find('.review__content').removeAttr("style");
+                $this.removeClass(classActive);
+            }else{
+                $this.addClass(classActive);
+                $this.parent().find('.review__content').css('height',jQuery(this).parent().find('.review__content div').height() );
+            }
+
+            return false;
+        });
+    }
+}
 
 document.addEventListener('wpcf7mailsent', function (event) {
     if (event.detail.contactFormId == "51") {
