@@ -48,6 +48,9 @@ $phone_number = get_field('number_phone', 'option');
     <header class="header">
         <div class="container">
             <div class="row  justify-content-between">
+                <a class="mobile-logo" href="<?php echo home_url(); ?>">
+                    <img src="<?php echo get_theme_file_uri('/assets/images/footer-logo.png'); ?>" alt="Главная"/>
+                </a>
                 <div class="align-items-center justify-content-between">
                     <?php wp_nav_menu('container=nav&menu_id=menu-main&menu_class=main-main-container clearfix&theme_location=top_menu'); ?>
                 </div>
@@ -56,12 +59,12 @@ $phone_number = get_field('number_phone', 'option');
                         <img src="<?php echo get_theme_file_uri('/assets/images/phone.png'); ?>" alt="Иконка"/>    <?php echo $phone_number; ?>
                     </a>
                 </div>
+                <a href="#" class="menu-icon-toggle"><span></span></a>
             </div>
         </div>
     </header>
-    <!--    <div class="mobile-menu">-->
-    <!---->
-    <!--        --><?php //wp_nav_menu('container=div&menu_id=menu-mobile&menu_class=mobile-main-container clearfix&theme_location=top_menu'); ?>
-    <!--    </div>-->
+        <div class="mobile-menu d-flex w-100   justify-content-center">
+            <?php wp_nav_menu('container=div&menu_id=menu-mobile&menu_class=mobile-main-container clearfix&theme_location=top_menu'); ?>
+        </div>
 
 

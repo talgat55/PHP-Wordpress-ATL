@@ -9,7 +9,7 @@ jQuery(document).ready(function () {
     // homePagePortfolioCarousel();
     // partnersCarousel();
     // modal();
-    // mobileMenu();
+    mobileMenu();
     phoneMask();
     clientsCarousel();
     // backToTop();
@@ -178,21 +178,20 @@ function map() {
     }
 }
 
-//
-// //----------------------------------
-// //  Mobile Menu
-// //------------------------------------
-// function mobileMenu() {
-//     "use strict";
-//     var linkClass = '#mobile-toggle';
-//     var mobileClass = '.mobile-bar';
-//
-//     jQuery('body').on('click', linkClass, function () {
-//         jQuery(this).toggleClass('is-active');
-//         jQuery(mobileClass).toggleClass('is-active');
-//         return false;
-//     });
-// }
+
+//----------------------------------
+//  Mobile Menu
+//------------------------------------
+function mobileMenu() {
+    "use strict";
+    let linkClass = '.menu-icon-toggle';
+    let mobileClass = 'open';
+
+    jQuery(linkClass).on('click', function(e) {
+        jQuery('body').toggleClass(mobileClass);
+        e.preventDefault();
+    });
+}
 
 //----------------------------------
 //  Input phone field Mask
@@ -566,7 +565,15 @@ function reviewSlider() {
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: true,
-
+            responsive: [
+                {
+                    breakpoint: 690,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                    }
+                }
+            ]
             //   autoplay: true,
         });
     }

@@ -1,5 +1,3 @@
-//@media (min-width: 1200px)
-
 =placeholder
   &::-webkit-input-placeholder
     @content
@@ -9,7 +7,10 @@
     @content
   &:-ms-input-placeholder
     @content
-
+$indigo: #000
+$danube: #000
+$white: #fff
+$bermuda: #77D7B9
 .main-title
   text-align: center
   font-weight: bold
@@ -49,6 +50,7 @@
       background-color: var(--theme-alt-color)
       border-color: var(--theme-alt-color)
       color: #fff
+
 .post-type-archive-portfolio,
 .home
   .header
@@ -68,6 +70,190 @@
 //
 // Header
 //
+@mixin center
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+
+.menu-icon-toggle
+  width: 30px
+  height: 30px
+  position: fixed
+  z-index: 9999
+  cursor: pointer
+  display: none
+  right: 20px
+  top: 20px
+
+  span
+    display: block
+    width: 100%
+    height: 2px
+    position: absolute
+    top: 50%
+    background-color: $white
+    transform: translate(0, -50%)
+    transition: opacity 0.3s 0.3s
+
+    .home:not(.open) &
+      background-color: $white
+
+
+  &::before,
+  &::after
+    content: ''
+    display: block
+    width: 100%
+    height: 2px
+    position: absolute
+    background-color: $white
+    transition: transform 0.3s, top 0.3s 0.3s, bottom 0.3s 0.3s
+
+  &::before
+    top: 6px
+
+  &::after
+    bottom: 6px
+
+  .open &
+    span
+      opacity: 0
+      transition: opacity 0.3s
+
+    &::before,
+    &::after
+      background-color: $danube
+
+    &::before
+      top: calc(50% - 1px)
+      transform: rotate(45deg)
+
+    &::after
+      bottom: calc(50% - 1px)
+      transform: rotate(-45deg)
+
+    &::before,
+    &::after
+      transition: top 0.3s, bottom 0.3s, transform 0.3s 0.3s
+
+  .open &
+    visibility: visible
+    transition: background-position 0.5s, transform 0.5s 0.5s
+
+  &.top
+    transform: rotate(-45deg) translateY(-150%)
+    background: linear-gradient(to top, $danube 50%, $white 50%)
+    background-size: 100% 200%
+    background-position: -100% 100%
+
+    .open &
+      transform: rotate(-45deg) translateY(-49%)
+      background-position: 0 0
+
+
+  &.middle
+    transform: rotate(-45deg) translateY(50%) scaleY(0)
+    background: $white
+
+    .open &
+      transform: rotate(-45deg) translateY(50%) scaleY(1)
+
+
+  &.bottom
+    transform: rotate(-45deg) translateY(250%)
+    background: linear-gradient(to bottom, $white 50%, $danube 50%)
+    background-size: 100% 200%
+    background-position: 0 -100%
+
+    .open &
+      transform: rotate(-45deg) translateY(149%)
+      background-position: 0 0
+
+
+.mobile-menu
+  position: fixed
+  top: 0
+  left: 0
+  visibility: hidden
+  list-style-type: none
+  margin: 0
+  padding: 0
+  z-index: 999
+  background: #fff
+  width: 100%
+  height: 120%
+  transition: all .3s
+  opacity: 0
+
+  .header-logo-mobile
+    margin: 70px auto 26px
+    display: table
+
+  .menu-menu-1-container
+    display: flex
+    justify-content: center
+    margin-top: 99px
+
+  .open &
+    visibility: visible
+    opacity: 1
+
+  li
+    opacity: 0
+    margin-bottom: 5px
+    transform: translateX(20px)
+    transition: all 0.3s
+    list-style: none
+    $time-offset-close: 0
+    @for $i from 9 through 1
+      &:nth-child(#{$i})
+        $time-offset-close: $time-offset-close + 0.1
+        transition-delay: #{$time-offset-close}s
+
+        span
+          transition-delay: #{$time-offset-close}s
+
+
+    .open &
+      opacity: 1
+      transform: translateX(0)
+      backface-visibility: hidden
+      $time-offset-open: 1
+      @for $i from 1 through 5
+        &:nth-child(#{$i})
+          $time-offset-open: $time-offset-open + 0.1
+          transition-delay: #{$time-offset-open}s
+
+          span
+            transition-delay: #{$time-offset-open}s
+
+  a
+    position: relative
+    font-size: 15px
+    text-decoration: none
+    color: $danube
+
+    &::before
+      content: ''
+      display: block
+      height: 2px
+      width: 0
+      position: absolute
+      left: -30px
+      top: 50%
+      background-color: $danube
+      transform: translateY(-50%)
+      transition: width 0.3s
+
+    &:hover
+      &::before
+        width: 15px
+
+.mobile-logo
+  display: none
+
 .header
   padding: 42px 0
   z-index: 2
@@ -625,6 +811,26 @@
   &__bottom .link
     margin: 0 auto 32px auto
     display: table
+  .slick-dots
+    bottom: -55px
+
+    li
+      width: 11px
+      height: 11px
+
+    button
+      width: 11px
+      height: 11px
+      background-color: #e2e2e2
+      border-radius: 50%
+
+      &:before
+        display: none
+
+    .slick-active
+      button
+        background-color: var(--theme-color)
+
 
 //
 // Cert
@@ -762,8 +968,10 @@
 
   .load-more-wrapper
     margin-bottom: 70px
+
   .map-section
     margin: 0
+
     #map
       height: 380px
 //
@@ -816,10 +1024,10 @@
 // Clients
 //
 .client
-  background-size: cover!important
-  background-position: center center!important
-  background-repeat: no-repeat!important
-  padding: 90px 0  20px
+  background-size: cover !important
+  background-position: center center !important
+  background-repeat: no-repeat !important
+  padding: 90px 0 20px
   margin-top: -50px
 
   &__item-wrap
@@ -834,6 +1042,19 @@
     margin-bottom: 30px
     color: #fff
 
+  .slick-dots li button
+    border: 1.5px solid  #fff
+    border-radius: 50%
+    width: 15px
+    height: 15px
+    transition:  all .3s
+    &:before
+      display: none
+
+  .slick-active
+    button
+      transform: translateY(9px)
+      background-color: #fff!important
 
 
 //
@@ -1092,46 +1313,114 @@ input[type=text]
       margin-right: 80px
 
 
+//@media (max-width: 1200px)
+
+@media (max-width: 993px)
+  .menu-top-menyu-container
+    display: none !important
+
+  .mobile-menu
+    .menu-top-menyu-container
+      display: block !important
+  .header
+    padding: 10px 0
+
+    .menu-icon-toggle
+      display: block
+
+    .mobile-logo
+      display: block
+      position: relative
+
+      img
+        width: 50px
+
+    .header-call_block
+      display: flex
+
+  .home_slide-content_block-sub_title
+    font-size: 15px
+    padding-top: 70px
+
+  .home_slide-content_block-title
+    font-size: 38px
+    line-height: 1.5
+    padding-bottom: 30px
+
+  .home_slide-content_block .link
+    margin-bottom: 35px
+
+  .home_slide
+    height: 430px
+
+  .main-title
+    position: relative
+  .about
+    margin-bottom: -270px
+
+  .about-list-item-img_blog
+    margin-bottom: 10px
+  .about-list-item-counter
+    font-size: 39px
+
+  .about-list-item-title
+    font-size: 14px
+
+  .about-list-item
+    margin-bottom: 50px
+
+  .service
+    margin-top: 0
+    padding-top: 260px
+    padding-bottom: 70px
+
+    .main-title
+      margin-bottom: 25px
+  .home-portfolio
+    .link-button
+      display: none
+
+  .home-portfolio__list-items
+    flex-wrap: wrap
+    .home-portfolio__item:nth-of-type(4n+2),
+    .home-portfolio__item
+      width: 50%
+      margin: 0
+    .wrapper-two-items .home-portfolio__item .home-portfolio__img,
+    .wrapper-two-items .home-portfolio__item:nth-of-type(4n+2),
+    .wrapper-two-items .home-portfolio__item,
+    .home-portfolio__item:first-child .home-portfolio__img
+      width: 100%
+      height: 380px
+    .wrapper-two-items
+      width: 50%
+      .home-portfolio__item:nth-of-type(4n+2)
+        margin-top: 0
+    .home-portfolio__img
+      height: 380px
+
+  .review__img-block
+    display: none
+
+@media (max-width: 768px)
+  .service
+    margin-top: -475px
+    padding-top: 466px
+
+    &__title
+      background-color: #fff
+
+
+@media (max-width: 678px)
+  .review__slider::after,
+  .review__slider:before
+    display: none
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media (max-width: 600px)
+  .service__list-items
+    margin: 0
 
 
 
