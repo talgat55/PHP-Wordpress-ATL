@@ -11,7 +11,7 @@
                 <div class="footer__first">
                     <?php wp_nav_menu('container=div&menu_id=footer-main&menu_class=footer-main-container clearfix&theme_location=top_menu'); ?>
                 </div>
-                <div class="footer__second d-flex w-100 align-items-center  justify-content-center ">
+                <div class="footer__second d-md-flex w-100 align-items-center  justify-content-center ">
                                             <a target="_blank" class="bottom-copyright" title="Перейти на сайт разработчика"
                                                href="https://asmart-group.ru/">Cайт создан в IT-company <span>ASMART</span></a>
                     <a href="/policy" class="link-to-policy">

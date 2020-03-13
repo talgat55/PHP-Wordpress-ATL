@@ -9,7 +9,7 @@
 <section class="feedback lazy"   data-src="<?php echo get_theme_file_uri('/assets/images/bg-feedback-2.png'); ?>">
     <div class="container">
         <div class="row">
-            <div class="feedback__form-wrapper d-flex w-100" >
+            <div class="feedback__form-wrapper d-md-flex w-100" >
                 <div class="feedback__first d-flex align-items-center  ">
                     <ul class="feedback__list-soc-links">
                         <li class="feedback__item-soc-link  d-flex align-items-center">

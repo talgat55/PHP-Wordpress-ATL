@@ -25,7 +25,8 @@ jQuery(document).ready(function () {
     partnersCarousel();
     reviewSlider();
     awardsCarousel();
-
+    serviceCarousel();
+    serviceCarouselQA();
 
     //
     // Lazy load
@@ -37,10 +38,12 @@ jQuery(document).ready(function () {
     //
     //     e.preventDefault();
     // });
+
+
     //
     // Match height in events
     //
-    // jQuery('.page-news_list-row .post-item').matchHeight();
+    jQuery('.list-qa__item_wrap').matchHeight();
 
         //  init   animation blocks library
 
@@ -377,57 +380,6 @@ function phoneMask() {
 //         });
 //     }
 // }
-//
-// //----------------------------------
-// //   Awards carousel
-// //---------------------------------------
-//
-// function awardsCarousel() {
-//     "use strict";
-//     var carouselWrap = jQuery('.page-about_awards_list-items');
-//
-//     if (carouselWrap.length) {
-//         carouselWrap.slick({
-//             infinite: true,
-//             slidesToShow: 4,
-//             slidesToScroll: 4,
-//             arrows: true,
-//             dots: true,
-//             autoplay: true,
-//             responsive: [
-//                 {
-//                     breakpoint: 1100,
-//                     settings: {
-//                         slidesToShow: 3,
-//                         slidesToScroll: 3,
-//                         arrows: false
-//                     }
-//                 },
-//                 {
-//                     breakpoint: 768,
-//                     settings: {
-//                         slidesToShow: 2,
-//                         slidesToScroll: 2,
-//                         arrows: false
-//                     }
-//                 },
-//                 {
-//                     breakpoint: 600,
-//                     settings: {
-//                         slidesToShow: 1,
-//                         slidesToScroll: 1,
-//                         arrows: false
-//                     }
-//                 }
-//                 // You can unslick at a given breakpoint now by adding:
-//                 // settings: "unslick"
-//                 // instead of a settings object
-//             ]
-//         });
-//     }
-// }
-//
-//
 
 //
 // //----------------------------------
@@ -571,7 +523,7 @@ function reviewSlider() {
                     breakpoint: 690,
                     settings: {
                         arrows: false,
-                        dots: true,
+                        dots: false,
                     }
                 }
             ],
@@ -760,11 +712,145 @@ function reviewArrowDown() {
     }
 }
 
-document.addEventListener('wpcf7mailsent', function (event) {
-    if (event.detail.contactFormId == "51") {
-        successModal();
+
+
+//---------------------------------------
+//   Service detail  carousel
+//---------------------------------------
+
+function serviceCarousel() {
+    "use strict";
+    var carouseServicelWrap = jQuery('.page-firewall__slider');
+    var $body = jQuery('body');
+    if (carouseServicelWrap.length) {
+
+        carouseServicelWrap.slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            arrows: true,
+            dots: false,
+            autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 1100,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+
+
+        $body.on('click', '.page-firewall__arrows-slider .left',function(){
+            carouseServicelWrap.slick('slickPrev');
+            return false;
+        });
+
+        $body.on('click', '.page-firewall__arrows-slider .right',function(){
+            carouseServicelWrap.slick('slickNext');
+            return false;
+        });
+
     }
-     if (event.detail.contactFormId == "168") {
-        successModal();
+}
+
+
+
+//---------------------------------------
+//   Service detail  carousel  QA
+//---------------------------------------
+
+function serviceCarouselQA() {
+    "use strict";
+    var carouseServiceQA = jQuery('.page-firewall__list-qa');
+    var $body = jQuery('body');
+    if (carouseServiceQA.length) {
+
+        carouseServiceQA.slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            // arrows: true,
+            dots: false,
+            // autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 1100,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+
+
+        $body.on('click', '.arrow-qa  .prev',function(){
+            carouseServiceQA.slick('slickPrev');
+            return false;
+        });
+        $body.on('click', '.arrow-qa .next',function(){
+            carouseServiceQA.slick('slickNext');
+            return false;
+        });
+
     }
-}, false);
+}
+
+
+
+
+
+
+// document.addEventListener('wpcf7mailsent', function (event) {
+//     if (event.detail.contactFormId == "51") {
+//         successModal();
+//     }
+//      if (event.detail.contactFormId == "168") {
+//         successModal();
+//     }
+// }, false);

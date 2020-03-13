@@ -5,13 +5,21 @@
  * Date: 16.02.20
  * Time: 21:37
  */
+
+$titleBlock = get_query_var('title_clients');
+if (!empty($titleBlock)) {
+    $redyTitle = $titleBlock;
+} else {
+    $redyTitle ='Наши клиенты';
+}
 ?>
 
 <section class="client lazy"     data-src="<?php echo get_theme_file_uri('/assets/images/client-bg.png'); ?>">
     <div class="container">
         <div class="row">
             <h2 class="main-title w-100">
-                Наши клиенты
+
+                <?php echo $redyTitle ?>
             </h2>
         </div>
         <div class="client__items-list">

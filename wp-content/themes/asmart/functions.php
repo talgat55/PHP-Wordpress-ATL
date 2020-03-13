@@ -22,6 +22,7 @@ add_image_size('review-img', 210, 60, false);
 add_image_size('portfolio-img', 400, 400, true);
 add_image_size('portfolio-page-img', 360, 359, true);
 add_image_size('service-home-img', 368, 389, true);
+add_image_size('service-detail-img', 390, 378, true);
 
 
 /**
@@ -30,6 +31,16 @@ add_image_size('service-home-img', 368, 389, true);
 function th_scripts()
 {
     wp_enqueue_style('bootstrap.min', get_theme_file_uri('/assets/css/bootstrap.min.css'), array(), '');
+    if (is_singular( 'services' )) {
+        $firstImg = get_field('first_image');
+        echo '  <style>
+                        .header:before{
+                            background: url('.$firstImg.')!important;
+                        }
+                </style>
+                ';
+    }
+
     // Theme stylesheet.
     wp_enqueue_style('th-style', get_stylesheet_uri(), array(), '1');
     wp_enqueue_style('main-style', get_theme_file_uri('/assets/css/style.css'), array(), '1');
@@ -37,7 +48,7 @@ function th_scripts()
     wp_enqueue_script('lazy', get_theme_file_uri('/assets/js/jquery.lazy.min.js'), array(), '', true);
     wp_deregister_script('jquery');
     wp_enqueue_script('jquery', get_theme_file_uri('/assets/js/jquery-3.2.1.min.js'), array(), '');
-//    wp_enqueue_script('jquery-migrate.min', get_theme_file_uri('/assets/js/jquery.matchHeight.js'), array(), '', true);
+    wp_enqueue_script('jquery-migrate.min', get_theme_file_uri('/assets/js/jquery.matchHeight.js'), array(), '', true);
     wp_enqueue_script('slick.min', get_theme_file_uri('/assets/js/slick.min.js'), array(), '', true);
 //
     wp_enqueue_script('jquery.inputmask', get_theme_file_uri('/assets/js/jquery.inputmask.js'), array(), '', true);
@@ -237,6 +248,35 @@ function post_type_clients()
         )
     );
     register_post_type('clients', $args);
+}
+
+
+
+/*
+*  Register Post Type  QA
+*/
+add_action('init', 'post_type_qa');
+
+function post_type_qa()
+{
+    $labels = array(
+        'name' => 'Часто задаваемые вопросы',
+        'singular_name' => 'Часто задаваемые вопросы',
+        'all_items' => 'Часто задаваемые вопросы',
+        'menu_name' => 'Часто задаваемые вопросы' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_position' => 5,
+        'has_archive' => true,
+        'query_var' => "qa",
+        'supports' => array(
+            'title',
+            'editor'
+        )
+    );
+    register_post_type('qa', $args);
 }
 
 /*

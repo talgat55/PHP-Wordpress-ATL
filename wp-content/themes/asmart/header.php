@@ -40,7 +40,6 @@
 
 <body <?php body_class(); ?>>
 <?php
-
 $phone_number = get_field('number_phone', 'option');
 
 ?>
@@ -55,16 +54,24 @@ $phone_number = get_field('number_phone', 'option');
                     <?php wp_nav_menu('container=nav&menu_id=menu-main&menu_class=main-main-container clearfix&theme_location=top_menu'); ?>
                 </div>
                 <div class="header-call_block">
-                    <a href="tel:<?php echo strip_tags($phone_number); ?>" >
-                        <img src="<?php echo get_theme_file_uri('/assets/images/phone.png'); ?>" alt="Иконка"/>    <?php echo $phone_number; ?>
+                    <a href="tel:<?php echo strip_tags($phone_number); ?>">
+                        <img src="<?php echo get_theme_file_uri('/assets/images/phone.png'); ?>"
+                             alt="Иконка"/> <?php echo $phone_number; ?>
                     </a>
                 </div>
                 <a href="#" class="menu-icon-toggle"><span></span></a>
             </div>
         </div>
     </header>
-        <div class="mobile-menu d-flex w-100   justify-content-center">
+    <div class="mobile-menu d-flex w-100   justify-content-center">
+        <div>
             <?php wp_nav_menu('container=div&menu_id=menu-mobile&menu_class=mobile-main-container clearfix&theme_location=top_menu'); ?>
+
+            <a href="tel:<?php echo strip_tags($phone_number); ?>">
+                <img src="<?php echo get_theme_file_uri('/assets/images/phone.png'); ?>"
+                     alt="Иконка"/> <?php echo $phone_number; ?>
+            </a>
         </div>
+    </div>
 
 

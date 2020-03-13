@@ -57,6 +57,12 @@ $bermuda: #77D7B9
       border-color: var(--theme-alt-color)
       color: #fff
 
+  &_alt-theme
+    border-color: var(--theme-alt-color)
+    background-color: var(--theme-alt-color)
+    color: #fff
+
+.services-template-default,
 .page-template,
 .post-type-archive-portfolio,
 .home
@@ -88,12 +94,12 @@ $bermuda: #77D7B9
 .menu-icon-toggle
   width: 30px
   height: 30px
-  position: fixed
+  position: absolute
   z-index: 9999
   cursor: pointer
   display: none
   right: 20px
-  top: 20px
+  top: 23px
 
   span
     display: block
@@ -132,7 +138,7 @@ $bermuda: #77D7B9
 
     &::before,
     &::after
-      background-color: $danube
+      background-color: #fff
 
     &::before
       top: calc(50% - 1px)
@@ -194,6 +200,18 @@ $bermuda: #77D7B9
   height: 120%
   transition: all .3s
   opacity: 0
+
+  .menu-top-menyu-container
+    margin-top: 130px
+
+  #menu-mobile
+    margin: 0
+    padding: 0
+    text-align: center
+
+    li
+      margin-bottom: 10px
+
 
   .header-logo-mobile
     margin: 70px auto 26px
@@ -1398,6 +1416,188 @@ input[type=text]
   width: 100%
   height: 580px
 
+//
+//  Service   detail page
+// page firewall
+//
+.postid-14
+  .header:before
+    background-position: 55px 740px !important
+
+.single-services,
+.page-firewall
+  position: relative
+
+  &__description-block
+    width: 72%
+    margin: 0 auto 70px auto
+
+  &__slider
+    width: 100%
+
+  &__item-link
+    display: block
+
+    img
+      max-width: 396px
+      transform: scale(.8)
+      transition: all .3s
+      opacity: .4
+
+  .slick-current + .slick-active
+    img
+      transform: scale(1)
+      opacity: 1
+
+  &__arrows-slider
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -40px
+    transform: translate(-50%, -50%)
+
+    .left
+      position: absolute
+      left: -229px
+
+    .right
+      position: absolute
+      right: -240px
+
+  .slider-section
+    margin-bottom: 70px
+
+    .slick-dots
+      bottom: -25px
+
+      li
+        width: 11px
+        height: 11px
+
+      button
+        width: 11px
+        height: 11px
+        background-color: #e2e2e2
+        border-radius: 50%
+
+        &:before
+          display: none
+
+      .slick-active
+        button
+          background-color: var(--theme-color)
+
+
+.single-services
+  .banner-section
+    background: url('../images/bg-brendm.png')
+    background-size: cover !important
+    background-position: center center
+    padding-top: 35px
+
+    &__text
+      color: #fff
+      font-weight: bold
+      font-size: 30px
+      margin-bottom: 50px
+
+      span
+        color: var(--theme-alt-color)
+
+    &__wrapper_first
+      text-align: left
+
+      .link
+        margin: 0 auto
+        display: table
+
+  .qa-section
+    padding-top: 50px
+
+    h2
+      font-weight: bold
+      margin-top: 0
+      text-align: left
+      font-size: 24px
+      margin-bottom: 40px
+
+  .page-firewall__list-qa
+    margin: 0 -15px 35px
+    padding: 0
+    max-width: 1170px
+
+    .list-qa
+      &__item
+        margin: 15px 15px
+
+      &__item_wrap
+        border-radius: 20px
+        padding: 39px 25px
+        background: #fff
+        box-shadow: 0 7px 8px 4px #eee
+
+      &__title
+        font-weight: bold
+        font-size: 17px
+        min-height: 51px
+        margin-bottom: 40px
+
+      &__text
+        font-size: 15px
+
+        ul
+          margin: 10px 0 0
+          padding-left: 20px
+
+          li
+            position: relative
+            list-style: none
+
+            &::before
+              content: ""
+              display: block
+              width: 7px
+              height: 7px
+              background: var(--theme-alt-color)
+              border-radius: 50%
+              position: absolute
+              top: 6px
+              left: -20px
+
+  .arrow-qa
+    margin-bottom: 65px
+
+    .active
+      display: none
+
+    a
+      text-decoration: none
+
+    a:hover
+      text-decoration: none
+
+      .main
+        display: none
+
+      .active
+        display: inline-block
+
+  .client
+    padding: 90px 0 80px
+
+  footer
+    margin-top: -13px
+    position: relative
+
+  .about-alt
+    background: url(../images/bg-alt-about.png)
+    background-repeat: no-repeat !important
+    background-position: bottom !important
+    background-size: cover !important
+
+    .about-list-item-counter
+      color: #000
+
 
 //
 // Footer
@@ -1446,7 +1646,27 @@ input[type=text]
       margin-right: 80px
 
 
-//@media (max-width: 1200px)
+@media (max-width: 1200px)
+  .page-firewall__slider
+    .page-firewall__item-link
+      img
+        width: 100%
+  .page-firewall__arrows-slider
+    .left
+      left: -199px
+
+    .right
+      right: -200px
+
+@media (max-width: 1150px)
+  .banner-section
+    img
+      width: 100%
+
+  .single-services
+    .banner-section__text
+      font-size: 26px
+      margin-bottom: 20px
 
 @media (max-width: 993px)
   .menu-top-menyu-container
@@ -1539,6 +1759,30 @@ input[type=text]
 
   .review__img-block
     display: none
+  footer
+    padding: 10px 0
+
+    .menu-top-menyu-container
+      display: block !important
+
+    .footer-logo
+      margin: 0 auto 30px auto
+      text-align: center
+
+    .footer-main-container
+      justify-content: center
+
+  .page-firewall__arrows-slider
+    .left
+      left: -159px
+
+    .right
+      right: -160px
+
+  .single-services
+    .banner-section
+      padding-top: 130px
+      margin-top: -100px
 
 @media (max-width: 768px)
   .service
@@ -1547,20 +1791,98 @@ input[type=text]
 
     &__title
       background-color: #fff
+  .header
+    z-index: 1000
+  .feedback__first
+    width: 100%
+  .feedback__list-soc-links
+    margin: 0 auto
+  footer
+    .footer-main-container
+      display: block !important
+      text-align: center
 
+      a
+        padding: 0 !important
+
+    .footer__second
+      text-align: center
+
+      a
+        display: block
+        margin-right: 0 !important
+  #map
+    height: 300px
+
+  .page-portfolio__img-block
+    margin: 0 auto
+
+  .page-firewall__arrows-slider
+    display: none
+  .page-firewall__item-link img,
+  .single-services__item-link img,
+  .single-services .slick-current + .slick-active img
+    transform: scale(1) !important
+    opacity: 1 !important
+
+  .single-services__item-link,
+  .page-firewall__item-link
+    margin: 5px
+
+  .services-template-default
+    .page__main-title
+      margin: 0 0 40px
 
 @media (max-width: 678px)
+  .header-call_block,
   .review__slider::after,
   .review__slider:before
-    display: none
+    display: none !important
 
+  .single-services__description-block, .page-firewall__description-block
+    width: 100%
+    margin: 0 auto 40px auto
+    padding: 0 15px
 
 @media (max-width: 600px)
   .service__list-items
     margin: 0
+  .review__slider
+    padding: 30px 15px
+  .partners__slider
+    img
+      margin: 0 auto
+  .feedback
+    .form-feedback
+      .row-custom
+        margin: 0 auto
+        display: block !important
 
+        span
+          margin: 0 0 20px
+          display: block
+          width: 100%
 
+          &::before
+            display: none
 
+  .page-firewall__slider .page-firewall__item-link img
+    margin: 0 auto
+  .single-services
+    .page-firewall__list-qa
+      margin: 0 auto 35px
+      max-width: 100%!important
+
+@media (max-width: 576px)
+  header
+    padding-left: 15px !important
+
+  .single-services
+    .arrow-qa,
+    .qa-section h2
+      padding: 0 15px
+    .arrow-qa
+      padding: 0 15px
 
 
 
