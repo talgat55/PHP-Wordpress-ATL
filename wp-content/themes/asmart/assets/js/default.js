@@ -730,7 +730,7 @@ function serviceCarousel() {
             slidesToScroll: 1,
             arrows: true,
             dots: false,
-            autoplay: true,
+            // autoplay: true,
             responsive: [
                 {
                     breakpoint: 1100,

@@ -1379,6 +1379,15 @@ input[type=text] {
 .postid-14 .header:before {
   background-position: 55px 740px !important; }
 
+.postid-16 .header:before {
+  background-position: 0 -267px !important; }
+
+.postid-16 .hero {
+  background-position: 0 -267px !important; }
+
+.postid-156 .header:before {
+  background-position: 0 -501px !important; }
+
 .single-services,
 .page-firewall {
   position: relative; }
@@ -1447,9 +1456,96 @@ input[type=text] {
       .single-services .slider-section .slick-dots .slick-active button,
       .page-firewall .slider-section .slick-dots .slick-active button {
         background-color: var(--theme-color); }
+  .single-services .advantages-alt,
+  .page-firewall .advantages-alt {
+    padding-top: 100px;
+    background: url("../images/bg-adv-alt.png");
+    background-size: cover !important;
+    background-position: center center;
+    padding-bottom: 45px; }
+    .single-services .advantages-alt h2,
+    .page-firewall .advantages-alt h2 {
+      font-weight: bold;
+      font-size: 24px;
+      color: #fff;
+      margin: 0 0 20px;
+      text-align: center;
+      display: block;
+      width: 100%; }
+    .single-services .advantages-alt p,
+    .page-firewall .advantages-alt p {
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 45px;
+      display: block;
+      width: 100%; }
+  .single-services .advantages-alt,
+  .page-firewall .advantages-alt {
+    color: #fff; }
+    .single-services .advantages-alt__item,
+    .page-firewall .advantages-alt__item {
+      margin-bottom: 65px; }
+    .single-services .advantages-alt__content,
+    .page-firewall .advantages-alt__content {
+      text-align: left;
+      padding-left: 30px; }
+    .single-services .advantages-alt__title,
+    .page-firewall .advantages-alt__title {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 12px; }
+    .single-services .advantages-alt__text,
+    .page-firewall .advantages-alt__text {
+      color: #fff;
+      margin-bottom: 0; }
+  .single-services .banner-section,
+  .page-firewall .banner-section {
+    background: url("../images/bg-dg.png");
+    padding-top: 10px !important;
+    padding-bottom: 60px; }
+  .single-services .advantages h2,
+  .page-firewall .advantages h2 {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0 0  30px; }
+  .single-services .advantages__item,
+  .page-firewall .advantages__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 50px; }
+  .single-services .advantages__img-block,
+  .page-firewall .advantages__img-block {
+    text-align: center;
+    margin-bottom: 25px; }
+  .single-services .advantages__content,
+  .page-firewall .advantages__content {
+    text-align: center; }
+
+.postid-156 .page-firewall__item-link div {
+  text-align: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 400px;
+  margin: 0 5px; }
 
 .single-services .banner-section {
-  background: url("../images/bg-brendm.png");
   background-size: cover !important;
   background-position: center center;
   padding-top: 35px; }
@@ -1457,7 +1553,8 @@ input[type=text] {
     color: #fff;
     font-weight: bold;
     font-size: 30px;
-    margin-bottom: 50px; }
+    margin-bottom: 50px;
+    text-align: center; }
     .single-services .banner-section__text span {
       color: var(--theme-alt-color); }
   .single-services .banner-section__wrapper_first {
@@ -1535,7 +1632,8 @@ input[type=text] {
   background: url(../images/bg-alt-about.png);
   background-repeat: no-repeat !important;
   background-position: bottom !important;
-  background-size: cover !important; }
+  background-size: cover !important;
+  padding-top: 45px; }
   .single-services .about-alt .about-list-item-counter {
     color: #000; }
 
