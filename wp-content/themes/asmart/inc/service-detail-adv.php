@@ -10,14 +10,14 @@
             <div class="row">
                 <?php
                     if(count($advantagesBlock) == 3){
-                        $itemClass = 'col-lg-4';
+                        $itemClass = 'col-lg-4  col-md-4';
                     }else{
-                        $itemClass = 'col-lg-3';
+                        $itemClass = 'col-lg-3  col-md-3';
                     }
 
                 ?>
                 <?php foreach ($advantagesBlock as $advItem): ?>
-                    <div class="advantages__item d-lg-flex  <?php echo $itemClass; ?>  col-md-3 col-sm-12">
+                    <div class="advantages__item d-lg-flex  <?php echo $itemClass; ?>  col-sm-12">
                         <div class="advantages__img-block">
                             <img src="<?php echo $advItem['img']; ?>" alt="Изображение" />
                         </div>

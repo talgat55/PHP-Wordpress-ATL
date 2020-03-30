@@ -45,13 +45,13 @@ jQuery(document).ready(function () {
     //
     jQuery('.list-qa__item_wrap').matchHeight();
 
-        //  init   animation blocks library
+    //  init   animation blocks library
 
     // end redy function
 });
 
 
-window.onload = function(){
+window.onload = function () {
     map();
 };
 
@@ -72,6 +72,7 @@ function lasyLoad() {
     }
 
 }
+
 // // ---------------------------------------------------------
 // // Back To Top
 // // ---------------------------------------------------------
@@ -125,7 +126,6 @@ function lasyLoad() {
 //
 
 
-
 function map() {
     "use strict";
     if (jQuery('#map').length) {
@@ -133,7 +133,7 @@ function map() {
             var myMap = new ymaps.Map('map', {
                     center: [54.966241, 73.382522],
                     zoom: 15,
-                    controls: [ ]
+                    controls: []
                 }, {
                     // searchControlProvider: 'yandex#search'
                 }),
@@ -191,7 +191,7 @@ function mobileMenu() {
     let linkClass = '.menu-icon-toggle';
     let mobileClass = 'open';
 
-    jQuery(linkClass).on('click', function(e) {
+    jQuery(linkClass).on('click', function (e) {
         jQuery('body').toggleClass(mobileClass);
         e.preventDefault();
     });
@@ -549,7 +549,7 @@ function awardsCarousel() {
             slidesToScroll: 4,
             arrows: false,
             dots: true,
-           autoplay: true,
+            autoplay: true,
             responsive: [
                 {
                     breakpoint: 1100,
@@ -693,25 +693,24 @@ function clientsCarousel() {
 function reviewArrowDown() {
     "use strict";
     var clickClass = jQuery('.page-reviews__expand');
-    var clickClassEmpty =  '.page-reviews__expand' ;
+    var clickClassEmpty = '.page-reviews__expand';
 
     var classActive = 'active';
     if (clickClass.length) {
         jQuery('body').on('click', clickClassEmpty, function () {
             var $this = jQuery(this);
-            if($this.hasClass(classActive)){
+            if ($this.hasClass(classActive)) {
                 $this.parent().find('.review__content').removeAttr("style");
                 $this.removeClass(classActive);
-            }else{
+            } else {
                 $this.addClass(classActive);
-                $this.parent().find('.review__content').css('height',jQuery(this).parent().find('.review__content div').height() );
+                $this.parent().find('.review__content').css('height', jQuery(this).parent().find('.review__content div').height());
             }
 
             return false;
         });
     }
 }
-
 
 
 //---------------------------------------
@@ -765,19 +764,18 @@ function serviceCarousel() {
         });
 
 
-        $body.on('click', '.page-firewall__arrows-slider .left',function(){
+        $body.on('click', '.page-firewall__arrows-slider .left', function () {
             carouseServicelWrap.slick('slickPrev');
             return false;
         });
 
-        $body.on('click', '.page-firewall__arrows-slider .right',function(){
+        $body.on('click', '.page-firewall__arrows-slider .right', function () {
             carouseServicelWrap.slick('slickNext');
             return false;
         });
 
     }
 }
-
 
 
 //---------------------------------------
@@ -829,21 +827,17 @@ function serviceCarouselQA() {
         });
 
 
-        $body.on('click', '.arrow-qa  .prev',function(){
+        $body.on('click', '.arrow-qa  .prev', function () {
             carouseServiceQA.slick('slickPrev');
             return false;
         });
-        $body.on('click', '.arrow-qa .next',function(){
+        $body.on('click', '.arrow-qa .next', function () {
             carouseServiceQA.slick('slickNext');
             return false;
         });
 
     }
 }
-
-
-
-
 
 
 // document.addEventListener('wpcf7mailsent', function (event) {
