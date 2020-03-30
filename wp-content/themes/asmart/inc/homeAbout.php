@@ -5,6 +5,8 @@
  * Date: 03.02.20
  * Time: 18:40
  */
+
+$file_presentation = get_field('file_presentation', 'option');
 ?>
 <section class="about">
     <div class="container">
@@ -48,8 +50,10 @@
                 </h3>
             </div>
         </div>
+
         <div class="row d-flex w-100 justify-content-center">
-            <a href="#" class="link-download">
+
+            <a href="<?php echo $file_presentation; ?> " class="link-download">
                 <div class="link-download_wrap">
                     <img src="<?php echo get_theme_file_uri('/assets/images/download.png'); ?>" alt="Изображение"/>
                     <p>
