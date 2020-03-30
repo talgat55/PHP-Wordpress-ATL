@@ -13,6 +13,7 @@ jQuery(document).ready(function () {
     phoneMask();
     reviewArrowDown();
     clientsCarousel();
+    scrollToDiv();
     // backToTop();
 
     // teamCarousel();
@@ -839,6 +840,26 @@ function serviceCarouselQA() {
     }
 }
 
+//---------------------------------------
+//   Scroll by anchor
+//---------------------------------------
+
+function scrollToDiv() {
+    "use strict";
+    if (jQuery('body').hasClass('home')) {
+        jQuery(document).on('click', 'a[href^="#"]', function (e) {
+            var thisId = jQuery(this).attr("href");
+            e.preventDefault();
+
+            var position = jQuery(thisId).offset().top;
+
+            jQuery("body, html").animate({
+                scrollTop: position
+            }, 'slow');
+
+        });
+    }
+}
 
 // document.addEventListener('wpcf7mailsent', function (event) {
 //     if (event.detail.contactFormId == "51") {

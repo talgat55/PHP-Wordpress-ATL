@@ -8,7 +8,7 @@
 
 $file_presentation = get_field('file_presentation', 'option');
 ?>
-<section class="about">
+<section id="about" class="about">
     <div class="container">
         <div class="row">
             <h2 class="main-title w-100">

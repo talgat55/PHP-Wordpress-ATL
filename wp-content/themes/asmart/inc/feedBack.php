@@ -6,7 +6,7 @@
  * Time: 12:49
  */
 ?>
-<section class="feedback lazy"   data-src="<?php echo get_theme_file_uri('/assets/images/bg-feedback-2.png'); ?>">
+<section id="feedback" class="feedback lazy"   data-src="<?php echo get_theme_file_uri('/assets/images/bg-feedback-2.png'); ?>">
     <div class="container">
         <div class="row">
             <div class="feedback__form-wrapper d-md-flex w-100" >
