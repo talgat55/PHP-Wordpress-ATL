@@ -16,8 +16,10 @@ $textBanner = get_field('text_you_banner');
 $slider = get_field('slider');
 $advantagesAlt = get_field('advantages_adv_alt');
 $advantagesBlock = get_field('advantage_adv');
+$advantagesAlt = get_field('advantages_adv_alt');
 $advantagesAltText = get_field('text_advantages_adv_alt');
-
+$imgBanner = get_field('img_you_banner');
+$pricePicture = get_field('price_picture');
 if (!empty($customTitle)) {
     $redyTitle = $customTitle;
 } else {
@@ -34,7 +36,7 @@ if (!empty($customTitle)) {
 
         <h1 class="page__main-title"><?php echo $redyTitle; ?></h1>
 
-        <div class="service-wrapper">
+        <div class="service-wrapper   adv-blocks">
             <div class="container">
                 <section>
                     <div class="row">
@@ -45,89 +47,44 @@ if (!empty($customTitle)) {
                         </div>
                     </div>
                 </section>
-                <?php if (!empty($slider)): ?>
-                    <section class="slider-section">
-                        <div class="row position-relative">
-                            <div class="page-firewall__slider">
 
-                                <?php foreach ($slider as $value): ?>
-                                    <a class="page-firewall__item-link">
-                                        <div>
-                                            <img src="<?php echo $value['sizes']['service-detail-img']; ?>" alt="Слайд"/>
-                                        </div>
-                                    </a>
-                                <?php endforeach; ?>
-                            </div>
-                            <div class="page-firewall__arrows-slider">
-                                <a href="#" class="left">
-                                    <img src="<?php echo get_theme_file_uri('/assets/images/service-left.png'); ?>"
-                                         alt="Иконка"/>
-                                </a>
-                                <a href="#" class="right">
-                                    <img src="<?php echo get_theme_file_uri('/assets/images/service-right.png'); ?>"
-                                         alt="Иконка"/>
-                                </a>
-                            </div>
-                        </div>
-                    </section>
-                <?php endif; ?>
+                <?php if (!empty($slider)):
+                    set_query_var('slider', $slider);
+                    get_template_part('inc/service-detail-slider');
+                endif; ?>
+
 
             </div>
-            <?php if (!empty($advantagesBlock)) : ?>
-                <div class="service-wrapper">
-                    <section class="advantages">
-                        <div class="container">
-                            <div class="row">
-                             <h2>
-                                 Преимущества рекламы
-                             </h2>
-                            </div>
-                            <div class="row">
-                                <?php foreach ($advantagesBlock as $advItem): ?>
-                                    <div class="advantages__item d-lg-flex  col-lg-3 col-md-3 col-sm-12">
-                                        <div class="advantages__img-block">
-                                            <img src="<?php echo $advItem['img']; ?>" alt="Изображение" />
-                                        </div>
-                                        <div class="advantages__content">
-                                            <div class="advantages__text">
-                                                <?php echo $advItem['text'] ;?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            <?php endif; ?>
-            <?php if (!empty($textBanner)) : ?>
-                <section class="banner-section">
+
+
+            <?php if (!empty($advantagesBlock) && $idDetail != '22') :
+                set_query_var('advantagesBlock', $advantagesBlock);
+                get_template_part('inc/service-detail-adv');
+            endif; ?>
+            <?php if (!empty($pricePicture)): ?>
+                <section class="price_picture">
                     <div class="container">
                         <div class="row">
-                            <div class="banner-section__first col-lg-6 col-md-12  d-flex align-items-center  justify-content-center">
+                            <h2 class="text-center w-100">
+                                Наши цены под ключ
+                            </h2>
+                            <img class="lazy" src="<?php echo $pricePicture; ?>" alt="Изображение прайса"/>
 
-                                <div class="banner-section__wrapper_first">
-                                    <div class="banner-section__text">
-                                        <?php echo $textBanner; ?>
-                                    </div>
-                                    <a class="link  link_alt-theme   link_medium" href="#">
-                                        Оформить
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="banner-section__second col-lg-6 col-md-12  d-flex justify-content-center">
-                                <?php $imgBanner = get_field('img_you_banner'); ?>
-                                <img src="<?php echo $imgBanner; ?>" alt="Изображение"/>
-                            </div>
                         </div>
                     </div>
                 </section>
             <?php endif; ?>
+            <?php if (!empty($textBanner)) :
+                set_query_var('textBanner', $textBanner);
+                set_query_var('imgBanner', $imgBanner);
+
+                get_template_part('inc/service-detail-text-banner');
+            endif; ?>
         </div>
 
 
         <?php if (!empty($advantagesAlt)) : ?>
-            <div class="service-wrapper">
+            <div class="service-wrapper audio">
                 <section class="advantages-alt">
                     <div class="container">
                         <div class="row">
@@ -137,14 +94,14 @@ if (!empty($customTitle)) {
                             <?php foreach ($advantagesAlt as $advAltItem): ?>
                                 <div class="advantages-alt__item d-lg-flex  col-lg-6 col-md-6 col-sm-12">
                                     <div class="advantages-alt__img-block">
-                                        <img src="<?php echo $advAltItem['image']; ?>" alt="Изображение" />
+                                        <img src="<?php echo $advAltItem['image']; ?>" alt="Изображение"/>
                                     </div>
                                     <div class="advantages-alt__content">
                                         <h3 class="advantages-alt__title">
-                                            <?php echo $advAltItem['title'] ;?>
+                                            <?php echo $advAltItem['title']; ?>
                                         </h3>
                                         <div class="advantages-alt__text">
-                                            <?php echo $advAltItem['text'] ;?>
+                                            <?php echo $advAltItem['text']; ?>
                                         </div>
                                     </div>
                                 </div>
@@ -159,6 +116,11 @@ if (!empty($customTitle)) {
                     </div>
                 </section>
             </div>
+
+        <?php endif; ?>
+        <?php if (!empty($advantagesBlock) && $idDetail == '22') :
+            set_query_var('advantagesBlock', $advantagesBlock);
+            get_template_part('inc/service-detail-adv'); ?>
         <?php endif; ?>
         <?php if ($showQA != 'no') : ?>
             <div class="service-wrapper">
@@ -208,8 +170,6 @@ if (!empty($customTitle)) {
                                 <?php
                                 endwhile;
                                 wp_reset_query();
-
-
                                 ?>
                             </div>
                             <div class="arrow-qa d-flex w-100  justify-content-between">
@@ -253,5 +213,93 @@ if (!empty($customTitle)) {
                 <?php get_template_part('inc/clients'); ?>
             </div>
         <?php endif; ?>
+
+
+        <?php if ($idDetail == '22') :   //  page adv in underground ?>
+            <!--    Audio -->
+            <div class="service-wrapper  audio-blocks">
+                <?php
+                $bannerAudioImg = get_field('banner_audio');
+                $titleAudio = get_field('title_audio');
+                $descriptionAudio = get_field('description_audio');
+                $imgBannerAudio = get_field('img_you_banner_audio');
+                $textBannerAudio = get_field('text_you_banner_audio');
+                $advantage_adv_audio = get_field('advantage_adv_audio');
+
+                set_query_var('bg_image', $bannerAudioImg);
+                ?>
+                <?php get_template_part('inc/hero'); ?>
+                <h2 class="page__main-title"><?php echo $titleAudio; ?></h2>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="page-firewall__description-block">
+                                <?php echo $descriptionAudio; ?>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <?php if (!empty($textBannerAudio)) :
+                    set_query_var('textBanner', $textBannerAudio);
+                    set_query_var('imgBanner', $imgBannerAudio);
+
+                    get_template_part('inc/service-detail-text-banner');
+                endif; ?>
+            </div>
+
+            <?php if (!empty($advantage_adv_audio)) :
+                set_query_var('advantagesBlock', $advantage_adv_audio);
+                get_template_part('inc/service-detail-adv');
+            endif; ?>
+
+            <!--  Pillars  -->
+            <div class="service-wrapper  pillars-blocks">
+                <?php
+                $bannerPillarsImg = get_field('banner_pillars');
+                $titlePillars = get_field('title_pillars');
+                $descriptionPillars = get_field('description_pillars');
+                $imgBannerPillars = get_field('img_you_banner_pillars');
+                $textBannerPillars = get_field('text_you_banner_pillars');
+                $advantageAdvPillars = get_field('advantage_adv_pillars');
+                $sliderPillars = get_field('slider_pillars');
+
+                set_query_var('bg_image', $bannerPillarsImg);
+                ?>
+                <?php get_template_part('inc/hero'); ?>
+                <h2 class="page__main-title"><?php echo $titlePillars; ?></h2>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="page-firewall__description-block">
+                                <?php echo $descriptionPillars; ?>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="container">
+                    <?php if (!empty($sliderPillars)):
+                        set_query_var('slider', $sliderPillars);
+                        get_template_part('inc/service-detail-slider');
+                    endif; ?>
+                </div>
+
+            </div>
+            <?php if (!empty($advantageAdvPillars)) :
+                set_query_var('advantagesBlock', $advantageAdvPillars);
+                get_template_part('inc/service-detail-adv'); ?>
+            <?php endif; ?>
+            <?php if (!empty($textBannerPillars)) : ?>
+                <div class="service-wrapper  pillars-block">
+                    <?php
+                    set_query_var('textBanner', $textBannerPillars);
+                    set_query_var('imgBanner', $imgBannerPillars);
+
+                    get_template_part('inc/service-detail-text-banner');
+                    ?>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+
     </div>
 <?php get_footer();
