@@ -16,11 +16,10 @@
                 <ul class="page-portfolio__list-items row ">
                     <?php
                     $arg = [
-                        'posts_per_page' => 12,
+                        'posts_per_page' => 3,
                         'post_type' => 'portfolio',
-//                    'meta_key' => 'sort',
-//                    'orderby' => 'meta_value',
-//                    'order' => 'ASC',
+                        'orderby' => 'date',
+                        'order' => 'DESC',
                         'status' => 'publish'
                     ];
                     $the_query = new WP_Query($arg);
@@ -28,21 +27,16 @@
                         $the_query->the_post();
                         $post_id = $the_query->post->ID;
 
+                        get_template_part('inc/portfolio-item');
                         ?>
-                        <li class="page-portfolio__item  col-md-4  col-sm-12">
-                            <a href="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "full")[0]; ?>"
-                               class="page-portfolio__item-wrap" data-lightbox="gallery">
-                                <div class="page-portfolio__img-block lazy"
-                                     data-src="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "portfolio-page-img")[0]; ?>"></div>
-                            </a>
-                        </li>
+
                     <?php
                     endwhile;
                     wp_reset_query();
                     ?>
                 </ul>
                 <div class="w-100  justify-content-center d-flex load-more-wrapper">
-                    <a href="#" class="link link_medium link_alt load-more">
+                    <a href="#" class="link link_medium link_alt load-more" data-page="2">
                         Смотреть еще
                     </a>
                 </div>

@@ -74,6 +74,49 @@
     </div>
 </div>
 
+<!-- Modal  Review -->
+<div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Отправить отзыв</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php echo do_shortcode('[contact-form-7  html_class="form-review"  id="242" title="Отзыв"]'); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal  Success -->
+<div class="modal fade" id="success-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <h3>
+                   Спасибо, ваще письмо получено
+               </h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 
 
 <div class="overlay-layer"></div>

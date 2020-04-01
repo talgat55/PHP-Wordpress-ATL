@@ -9,6 +9,7 @@ jQuery(document).ready(function () {
     // homePagePortfolioCarousel();
     // partnersCarousel();
     // modal();
+    ajaxLoadData();
     mobileMenu();
     phoneMask();
     reviewArrowDown();
@@ -425,13 +426,33 @@ function OpenModal() {
     });
 
 
-    jQuery("#promo-modal .close").click(function () {
-        jQuery('#promo-modal').hide().removeClass('in show');
-        jQuery(' .overlay-layer').removeClass('active');
+
+
+    jQuery(".single-services .banner-section .link_alt-theme").click(function () {
+        jQuery('#service-modal').fadeIn().addClass('in show');
+        jQuery(' .overlay-layer').addClass('active');
+
+        //  add value for hidden input
+        jQuery('#service-modal  input[name="service_name"]').val(jQuery(document).find("title").text());
+        return false;
+    });
+
+     jQuery(".review .review__bottom .link").click(function () {
+        jQuery('#review-modal').fadeIn().addClass('in show');
+        jQuery(' .overlay-layer').addClass('active');
+
         return false;
     });
 
 
+
+
+
+    jQuery("#promo-modal .close, #service-modal .close, #review-modal .close, #success-modal .close").click(function () {
+        jQuery('#promo-modal, #service-modal, #review-modal, #success-modal').hide().removeClass('in show');
+        jQuery(' .overlay-layer').removeClass('active');
+        return false;
+    });
 
 }
 
@@ -451,71 +472,7 @@ function OpenModal() {
 //     });
 // }
 //
-// //----------------------------------
-// //    Ajax news
-// //---------------------------------------
-// function eventCatAjax() {
-//     "use strict";
-//     jQuery('body').on('click', '.page-news_category-block_item_link', function () {
-//         var activeClass = 'page-news_category-block_item_link__active';
-//         jQuery('.page-news_category-block_item_link').removeClass(activeClass);
-//         jQuery(this).addClass(activeClass);
-//         var $term = jQuery(this).attr('data-slug');
-//         var data = {
-//             action: 'be_ajax_cat_events',
-//             term: $term
-//         };
-//         jQuery.post(myajax.url, data, function (res) {
-//             if (res.success) {
-//                 if (res.data != '') {
-//                     jQuery('.page-news_list-row')
-//                         .html(' ')
-//                         .append(res.data);
-//                 } else {
-//                     console.log(res);
-//                 }
-//             }
-//         }).fail(function (xhr, textStatus, e) {
-//             console.log(xhr.responseText);
-//         });
-//         return false;
-//     });
-//     //
-//     // Load more
-//     //
-//     jQuery('body').on('click', '.page-news .load-more', function () {
-//         var $page = jQuery(this).attr('data-page');
-//         var $term = jQuery('.page-news_category-block_item_link__active').attr('data-slug');
-//         var data = {
-//             action: 'be_ajax_events_load',
-//             page: $page,
-//             term: $term
-//         };
-//         jQuery(this).attr('data-page' , ++$page );
-//
-//         jQuery.post(myajax.url, data, function (res) {
-//             if (res.success) {
-//                 if (res.data.data != '') {
-//                     var countItems = jQuery('.page-news_list-row .post-item').length;
-//                     if( res.data.count.publish == countItems){
-//                         jQuery('.page-news .load-more').fadeOut();
-//                     }
-//                     if(res.data.data.length > 4){
-//                         jQuery('.page-news_list-row')
-//                             .append(res.data.data);
-//                     }else{
-//                         jQuery('.page-news_list-row').after('<p class="no-items-text">Записей больше нет</p>');
-//                     }
-//                 } else {
-//                     console.log(res);
-//                 }
-//             }
-//         }).fail(function (xhr, textStatus, e) {
-//             console.log(xhr.responseText);
-//         });
-//         return false;
-//     });
-// }
+
 
 //----------------------------------
 //   Review slider
@@ -872,12 +829,100 @@ function scrollToDiv() {
         });
     }
 }
+//----------------------------------
+//    Ajax load data
+//---------------------------------------
+function ajaxLoadData() {
+    "use strict";
+    var thisBody =  jQuery(document);
+    // load portfolio
+        thisBody.on('click', '.archive .link_alt.load-more', function (e) {
+        e.preventDefault();
+        var thisClick =  jQuery(this);
+            thisClick.addClass('load');
+        var $page = thisClick.attr('data-page');
+        var data = {
+            action: 'be_ajax_portfolio_load',
+            page: $page
+        };
+        jQuery(this).attr('data-page' , ++$page );
+        jQuery.post(myajax.url, data, function (res) {
+            if (res.success) {
+                if (res.data != '') {
+                    thisClick.removeClass('load');
+                    jQuery('.page-portfolio__list-items')
+                        .append(res.data.data);
 
-// document.addEventListener('wpcf7mailsent', function (event) {
-//     if (event.detail.contactFormId == "51") {
-//         successModal();
-//     }
-//      if (event.detail.contactFormId == "168") {
-//         successModal();
-//     }
-// }, false);
+                        var countCurrentItem =  jQuery('.page-portfolio__list-items li').length;
+                        var ajaxCount = res.data.count.publish;
+
+                        if(countCurrentItem == ajaxCount || countCurrentItem  > ajaxCount){
+                            jQuery('.archive .link_alt.load-more').fadeOut();
+                        }
+
+
+
+                } else {
+                    console.log(res);
+                }
+            }
+        }).fail(function (xhr, textStatus, e) {
+            console.log(xhr.responseText);
+        });
+    });
+
+
+    //
+    // Load more
+    //
+    // jQuery('body').on('click', '.page-news .load-more', function () {
+    //     var $page = jQuery(this).attr('data-page');
+    //     var $term = jQuery('.page-news_category-block_item_link__active').attr('data-slug');
+    //     var data = {
+    //         action: 'be_ajax_events_load',
+    //         page: $page,
+    //         term: $term
+    //     };
+    //     jQuery(this).attr('data-page' , ++$page );
+    //
+    //     jQuery.post(myajax.url, data, function (res) {
+    //         if (res.success) {
+    //             if (res.data.data != '') {
+    //                 var countItems = jQuery('.page-news_list-row .post-item').length;
+    //                 if( res.data.count.publish == countItems){
+    //                     jQuery('.page-news .load-more').fadeOut();
+    //                 }
+    //                 if(res.data.data.length > 4){
+    //                     jQuery('.page-news_list-row')
+    //                         .append(res.data.data);
+    //                 }else{
+    //                     jQuery('.page-news_list-row').after('<p class="no-items-text">Записей больше нет</p>');
+    //                 }
+    //             } else {
+    //                 console.log(res);
+    //             }
+    //         }
+    //     }).fail(function (xhr, textStatus, e) {
+    //         console.log(xhr.responseText);
+    //     });
+    //     return false;
+    // });
+}
+document.addEventListener('wpcf7mailsent', function (event) {
+
+    jQuery('.modal').hide().removeClass('in show');
+    jQuery('#success-modal').fadeIn().addClass('in show');
+    setTimeout(function(){
+        jQuery(' .overlay-layer').removeClass('active');
+        jQuery('#success-modal').hide().removeClass('in show');
+    },2000);
+
+
+
+    // if (event.detail.contactFormId == "51") {
+    //     successModal();
+    // }
+    //  if (event.detail.contactFormId == "168") {
+    //     successModal();
+    // }
+}, false);
