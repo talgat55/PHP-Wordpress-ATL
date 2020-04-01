@@ -20,7 +20,7 @@
             </p>
 
         </div>
-        <a href="#" class="link">
+        <a href="#"    class="link show-modal-promo">
             Получить скидку
         </a>
     </div>

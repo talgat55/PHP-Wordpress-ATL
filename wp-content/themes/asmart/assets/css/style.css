@@ -44,12 +44,22 @@
     background-color: var(--theme-alt-color);
     color: #fff; }
 
+.error-page .content {
+  min-height: 300px; }
+
+.page-template-default #primary {
+  margin-bottom: 60px; }
+
+.error404 .header:before,
+.page-template-default .header:before,
 .services-template-default .header:before,
 .page-template .header:before,
 .post-type-archive-portfolio .header:before,
 .home .header:before {
   background: url(../images/bg-slide.png); }
 
+.error404 .header .main-main-container .menu-item a,
+.page-template-default .header .main-main-container .menu-item a,
 .services-template-default .header .main-main-container .menu-item a,
 .page-template .header .main-main-container .menu-item a,
 .post-type-archive-portfolio .header .main-main-container .menu-item a,
@@ -1751,6 +1761,62 @@ input[type=text] {
         color: #74e42a; }
     .footer__second .bottom-copyright {
       margin-right: 80px; }
+
+.modal.show .modal-dialog {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
+
+.modal input[type=email],
+.modal input[type=text] {
+  margin-bottom: 15px; }
+
+.modal .policy-block {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  .modal .policy-block a {
+    color: var(--theme-color); }
+
+.modal .container_checkbox {
+  margin-right: 10px; }
+
+.overlay-layer {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+  visibility: hidden;
+  opacity: 0; }
+  .overlay-layer.active {
+    visibility: visible;
+    opacity: 1; }
+
+.wpcf7-submit {
+  display: table;
+  margin: 0 auto;
+  padding: 15px 45px;
+  border-radius: 30px;
+  border: none;
+  background: #343983;
+  background: -o-linear-gradient(left, #343983 0%, #1898ab 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#343983), to(#1898ab));
+  background: linear-gradient(90deg, #343983 0%, #1898ab 100%);
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+  color: #fff;
+  min-width: 200px; }
+  .wpcf7-submit:hover {
+    opacity: .5; }
 
 @media (max-width: 1370px) {
   .postid-227 .header:before {

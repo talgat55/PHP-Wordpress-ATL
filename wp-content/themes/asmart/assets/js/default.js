@@ -21,7 +21,7 @@ jQuery(document).ready(function () {
     // adversisticsCarousel();
     // closeModal();
     // scrollFirstSlider();
-    // OpenModal();
+    OpenModal();
     // eventCatAjax();
     partnersCarousel();
     reviewSlider();
@@ -412,17 +412,29 @@ function phoneMask() {
 //     }, 2000);
 // }
 //
-// //----------------------------------
-// //     Modal   Main
-// //---------------------------------------
-//
-// function OpenModal() {
-//     "use strict";
-//     jQuery(".page-portfolio_list-portfolio_item .link.link-main:not('.alt') , .page-partners .link.link-main.alt").click(function () {
-//         jQuery('.modal-main, .overlay-layer').addClass('active');
-//         return false;
-//     });
-// }
+//----------------------------------
+//     Modal   Main
+//---------------------------------------
+
+function OpenModal() {
+    "use strict";
+    jQuery(".show-modal-promo").click(function () {
+        jQuery('#promo-modal').fadeIn().addClass('in show');
+        jQuery(' .overlay-layer').addClass('active');
+        return false;
+    });
+
+
+    jQuery("#promo-modal .close").click(function () {
+        jQuery('#promo-modal').hide().removeClass('in show');
+        jQuery(' .overlay-layer').removeClass('active');
+        return false;
+    });
+
+
+
+}
+
 //
 //
 // //----------------------------------

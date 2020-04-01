@@ -17,15 +17,14 @@
 
 get_header(); ?>
     <div id="primary" class="content-area page-main ">
-
+        <?php get_template_part('inc/hero'); ?>
+        <h1 class="page__main-title"> <?php the_title(); ?></h1>
         <div class="container">
             <div class="row flex">
 
                 <div class="col-sm-12 col-xs-12   ">
                     <div class="content">
-                        <h1 class="main-title text-center">
-                            <?php the_title(); ?>
-                        </h1>
+
                         <?php
                         while (have_posts()) : the_post();
 
