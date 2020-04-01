@@ -294,11 +294,13 @@ if (function_exists('acf_add_options_page')) {
 
 
 }
-
+/*
+ *  load items for Portfolio ajax
+ */
 
 function portfolioItems($page){
     $arg = [
-        'posts_per_page' => 3,
+        'posts_per_page' => 12,
         'post_type' => 'portfolio',
         'orderby' => 'date',
         'order' => 'DESC',
@@ -322,6 +324,36 @@ function portfolioItems($page){
         get_template_part('inc/portfolio-item');
     endwhile;
 }
+/*
+ * Load items for review ajax
+ */
+function reviewItems($page){
+    $arg = [
+        'posts_per_page' => 4,
+        'post_type' => 'review',
+        'orderby' => 'date',
+        'order' => 'DESC',
+        'status' => 'publish',
+    ];
+
+    if (!empty($page)) {
+        $arg['paged'] = $page;
+    } else {
+        $arg['paged'] = '1';
+    }
+
+    ?>
+    <?php
+    $the_query = new WP_Query($arg);
+
+    while ($the_query->have_posts()) :
+        $the_query->the_post();
+        $post_id = $the_query->post->ID;
+        get_template_part('inc/review-item');
+    endwhile;
+}
+
+
 
 /**
  *
@@ -345,4 +377,33 @@ function be_ajax_portfolio_load()
 
 add_action('wp_ajax_be_ajax_portfolio_load', 'be_ajax_portfolio_load');
 add_action('wp_ajax_nopriv_be_ajax_portfolio_load', 'be_ajax_portfolio_load');
+
+
+/**
+ *
+ * AJAX Load  Review
+ */
+
+function be_ajax_review_load()
+{
+    $count = wp_count_posts('review');
+    ob_start();
+    reviewItems($_POST['page']);
+    wp_reset_postdata();
+    $data = ob_get_clean();
+    $response = [
+        'data' => $data,
+        'count' => $count
+    ];
+    wp_send_json_success($response);
+    wp_die();
+}
+
+add_action('wp_ajax_be_ajax_review_load', 'be_ajax_review_load');
+add_action('wp_ajax_nopriv_be_ajax_review_load', 'be_ajax_review_load');
+
+
+
+
+
 

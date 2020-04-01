@@ -873,40 +873,44 @@ function ajaxLoadData() {
 
 
     //
-    // Load more
+    // Load more  review
     //
-    // jQuery('body').on('click', '.page-news .load-more', function () {
-    //     var $page = jQuery(this).attr('data-page');
-    //     var $term = jQuery('.page-news_category-block_item_link__active').attr('data-slug');
-    //     var data = {
-    //         action: 'be_ajax_events_load',
-    //         page: $page,
-    //         term: $term
-    //     };
-    //     jQuery(this).attr('data-page' , ++$page );
-    //
-    //     jQuery.post(myajax.url, data, function (res) {
-    //         if (res.success) {
-    //             if (res.data.data != '') {
-    //                 var countItems = jQuery('.page-news_list-row .post-item').length;
-    //                 if( res.data.count.publish == countItems){
-    //                     jQuery('.page-news .load-more').fadeOut();
-    //                 }
-    //                 if(res.data.data.length > 4){
-    //                     jQuery('.page-news_list-row')
-    //                         .append(res.data.data);
-    //                 }else{
-    //                     jQuery('.page-news_list-row').after('<p class="no-items-text">Записей больше нет</p>');
-    //                 }
-    //             } else {
-    //                 console.log(res);
-    //             }
-    //         }
-    //     }).fail(function (xhr, textStatus, e) {
-    //         console.log(xhr.responseText);
-    //     });
-    //     return false;
-    // });
+    thisBody.on('click', '.page-reviews .load-more', function (e) {
+        e.preventDefault();
+        var thisClick =  jQuery(this);
+        thisClick.addClass('load');
+        var $page = jQuery(this).attr('data-page');
+        var data = {
+            action: 'be_ajax_review_load',
+            page: $page,
+        };
+        jQuery(this).attr('data-page' , ++$page );
+
+        jQuery.post(myajax.url, data, function (res) {
+            if (res.success) {
+                if (res.data != '') {
+                    thisClick.removeClass('load');
+                    jQuery('.page-reviews__list-items')
+                        .append(res.data.data);
+
+                    var countCurrentItem =  jQuery('.page-reviews__list-items li').length;
+                    var ajaxCount = res.data.count.publish;
+
+                    if(countCurrentItem == ajaxCount || countCurrentItem  > ajaxCount){
+                        jQuery('.page-reviews .load-more').fadeOut();
+                    }
+
+
+
+                } else {
+                    console.log(res);
+                }
+            }
+        }).fail(function (xhr, textStatus, e) {
+            console.log(xhr.responseText);
+        });
+        return false;
+    });
 }
 document.addEventListener('wpcf7mailsent', function (event) {
 

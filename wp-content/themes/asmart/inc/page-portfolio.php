@@ -16,7 +16,7 @@
                 <ul class="page-portfolio__list-items row ">
                     <?php
                     $arg = [
-                        'posts_per_page' => 3,
+                        'posts_per_page' => 12,
                         'post_type' => 'portfolio',
                         'orderby' => 'date',
                         'order' => 'DESC',

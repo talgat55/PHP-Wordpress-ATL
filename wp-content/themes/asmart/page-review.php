@@ -13,61 +13,26 @@ get_header(); ?>
                         <ul class="page-reviews__list-items row ">
                             <?php
                             $arg = [
-                                'posts_per_page' => 4,
+                                'posts_per_page' =>4,
                                 'post_type' => 'review',
-//                    'meta_key' => 'sort',
-//                    'orderby' => 'meta_value',
-//                    'order' => 'ASC',
+                                'orderby' => 'date',
+                                'order' => 'DESC',
                                 'status' => 'publish'
                             ];
                             $the_query = new WP_Query($arg);
                             while ($the_query->have_posts()) :
                                 $the_query->the_post();
                                 $post_id = $the_query->post->ID;
-                                $author = get_field('avtor', $post_id);
-                                $org = get_field('org', $post_id);
-                                if (strlen(get_the_content($post_id)) > 781) {
-                                    $class = true;
-                                    $divClass = 'true';
-                                } else {
-                                    $class = false;
-                                    $divClass = '';
-                                }
+                                get_template_part('inc/review-item');
                                 ?>
-                                <li class="review__item  page-reviews__item w-100">
-                                    <div class="review__first-block d-flex w-100 align-items-center ">
-                                        <div class="review__img-block">
-                                            <img src="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "review-img")[0]; ?>"
-                                                 alt="Логотип"/>
-                                        </div>
-                                        <div class="review__info-block">
-                                            <div class="review__author">
-                                                <?php echo $author; ?>
-                                            </div>
-                                            <div class="review__org">
-                                                <?php echo $org; ?>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="review__content  <?php echo $divClass; ?>">
-                                        <div>
-                                            <?php echo get_the_content($post_id); ?>
-                                        </div>
-                                    </div>
-                                    <?php if ($class) { ?>
-                                        <a href="#" class="page-reviews__expand">
-                                            <img src="<?php echo get_theme_file_uri('/assets/images/down-arrow.png'); ?>"
-                                                 alt="Иконка"/>
-                                        </a>
-                                    <?php } ?>
-                                </li>
+
                             <?php
                             endwhile;
                             wp_reset_query();
                             ?>
                         </ul>
                         <div class="w-100  justify-content-center d-flex load-more-wrapper">
-                            <a href="#" class="link link_medium link_alt load-more">
+                            <a href="#" class="link link_medium link_alt load-more"  data-page="2">
                                 Смотреть еще
                             </a>
                         </div>
