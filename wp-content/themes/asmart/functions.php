@@ -324,6 +324,7 @@ function portfolioItems($page){
         get_template_part('inc/portfolio-item');
     endwhile;
 }
+
 /*
  * Load items for review ajax
  */

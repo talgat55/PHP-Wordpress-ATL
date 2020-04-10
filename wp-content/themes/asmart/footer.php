@@ -1,5 +1,4 @@
 <footer class="footer">
-
     <div class="container">
         <div class="row  align-items-center">
             <div class="col-lg-3 col-sm-12">
@@ -57,12 +56,14 @@
 </div>
 
 <!-- Modal  Service -->
-<div class="modal fade" id="service-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade " id="service-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="exampleModalLabel">Оформить заявку</h3>
+                <p class="title">
+                    Заполните поля с данными, чтобы  мы могли с Вами связаться
+                </p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

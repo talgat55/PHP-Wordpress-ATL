@@ -5,10 +5,7 @@
 jQuery(document).ready(function () {
     "use strict";
     lasyLoad();
-    // sliderHomePage();
-    // homePagePortfolioCarousel();
-    // partnersCarousel();
-    // modal();
+
     ajaxLoadData();
     mobileMenu();
     phoneMask();
@@ -17,13 +14,7 @@ jQuery(document).ready(function () {
     scrollToDiv();
     // backToTop();
 
-    // teamCarousel();
-    // awardsCarousel();
-    // adversisticsCarousel();
-    // closeModal();
-    // scrollFirstSlider();
     OpenModal();
-    // eventCatAjax();
     partnersCarousel();
     reviewSlider();
     awardsCarousel();
@@ -100,31 +91,6 @@ function lasyLoad() {
 //     });
 //
 // }
-//
-// //
-// //  Modal
-// //
-// function modal() {
-//     "use strict";
-//     var classShow = 'show';
-//     jQuery('.overlay-layer, .custom-modal .close, .success-modal .link-ok').click(function () {
-//
-//         jQuery('.custom-modal ,  .success-modal, .overlay-layer').removeClass(classShow);
-//
-//         return false;
-//     });
-//
-//
-//     jQuery('.link-call, .link-feedback-service, #price-section .price-block .bottom a.first-link').click(function () {
-//
-//         jQuery('.custom-modal, .overlay-layer').addClass(classShow);
-//
-//         return false;
-//
-//     });
-//
-// }
-//
 //
 
 
@@ -212,207 +178,6 @@ function phoneMask() {
 }
 
 
-// //----------------------------------
-// //   Home Slider
-// //---------------------------------------
-//
-// function sliderHomePage() {
-//     "use strict";
-//     var sliderWrap = jQuery('.home-slider_slider');
-//
-//     if (sliderWrap.length) {
-//         sliderWrap.slick({
-//             infinite: true,
-//             slidesToShow: 1,
-//             slidesToScroll: 1,
-//             arrows: false,
-//             dots: true,
-//             autoplay: true,
-//         });
-//
-//         jQuery('.home-slider_slider .slick-dots').wrap("<div class='container  wrap-dots'></div>");
-//
-//
-//     }
-// }
-//
-// //----------------------------------
-// //   Home Portfolio carousel
-// //---------------------------------------
-//
-// function homePagePortfolioCarousel() {
-//     "use strict";
-//     var carouselWrap = jQuery('.home-portfolio_carousel');
-//
-//     if (carouselWrap.length) {
-//         carouselWrap.slick({
-//             infinite: true,
-//             slidesToShow: 3,
-//             slidesToScroll: 3,
-//             arrows: true,
-//             dots: true,
-//             autoplay: true,
-//             responsive: [
-//                 {
-//                     breakpoint: 1100,
-//                     settings: {
-//                         slidesToShow: 3,
-//                         slidesToScroll: 3,
-//                         arrows: false
-//                     }
-//                 },
-//                 {
-//                     breakpoint: 768,
-//                     settings: {
-//                         slidesToShow: 2,
-//                         slidesToScroll: 2,
-//                         arrows: false
-//                     }
-//                 },
-//                 {
-//                     breakpoint: 600,
-//                     settings: {
-//                         slidesToShow: 1,
-//                         slidesToScroll: 1,
-//                         arrows: false
-//                     }
-//                 }
-//                 // You can unslick at a given breakpoint now by adding:
-//                 // settings: "unslick"
-//                 // instead of a settings object
-//             ]
-//         });
-//     }
-// }
-//
-// //----------------------------------
-// //   Partners carousel
-// //---------------------------------------
-//
-// function partnersCarousel() {
-//     "use strict";
-//     var carouselWrap = jQuery('.partners-section_carousel');
-//
-//     if (carouselWrap.length) {
-//         carouselWrap.slick({
-//             infinite: true,
-//             slidesToShow: 4,
-//             slidesToScroll: 4,
-//             arrows: true,
-//             dots: true,
-//             autoplay: true,
-//             responsive: [
-//                 {
-//                     breakpoint: 1100,
-//                     settings: {
-//                         slidesToShow: 3,
-//                         slidesToScroll: 3,
-//                         arrows: false
-//                     }
-//                 },
-//                 {
-//                     breakpoint: 768,
-//                     settings: {
-//                         slidesToShow: 2,
-//                         slidesToScroll: 2,
-//                         arrows: false
-//                     }
-//                 },
-//                 {
-//                     breakpoint: 600,
-//                     settings: {
-//                         slidesToShow: 1,
-//                         slidesToScroll: 1,
-//                         arrows: false
-//                     }
-//                 }
-//                 // You can unslick at a given breakpoint now by adding:
-//                 // settings: "unslick"
-//                 // instead of a settings object
-//             ]
-//         });
-//     }
-// }
-//
-// //----------------------------------
-// //   Team carousel
-// //---------------------------------------
-//
-// function teamCarousel() {
-//     "use strict";
-//     var carouselWrap = jQuery('.page-about_list-team');
-//
-//     if (carouselWrap.length) {
-//         carouselWrap.slick({
-//             infinite: true,
-//             slidesToShow: 3,
-//             slidesToScroll: 3,
-//             arrows: true,
-//             dots: true,
-//             autoplay: true,
-//             responsive: [
-//                 {
-//                     breakpoint: 900,
-//                     settings: {
-//                         slidesToShow: 2,
-//                         slidesToScroll: 2,
-//                         arrows: false
-//                     }
-//                 },
-//                 {
-//                     breakpoint: 768,
-//                     settings: {
-//                         slidesToShow: 2,
-//                         slidesToScroll: 2,
-//                         arrows: false
-//                     }
-//                 },
-//                 {
-//                     breakpoint: 600,
-//                     settings: {
-//                         slidesToShow: 1,
-//                         slidesToScroll: 1,
-//                         arrows: false
-//                     }
-//                 }
-//                 // You can unslick at a given breakpoint now by adding:
-//                 // settings: "unslick"
-//                 // instead of a settings object
-//             ]
-//         });
-//     }
-// }
-
-//
-// //----------------------------------
-// //   close Modal
-// //---------------------------------------
-//
-// function closeModal() {
-//     "use strict";
-//     jQuery('.modal-main .close-modal-custom').click(function () {
-//         jQuery('.modal-main, .overlay-layer').removeClass('active');
-//         return false;
-//     });
-//     jQuery('.success-modal-main .close-modal-custom').click(function () {
-//         jQuery('.success-modal-main, .overlay-layer').removeClass('active');
-//         return false;
-//     });
-// }
-//
-// //----------------------------------
-// //   Success Modal
-// //---------------------------------------
-//
-// function successModal() {
-//     "use strict";
-//     jQuery('.modal-main').removeClass('active');
-//     jQuery('.success-modal-main, .overlay-layer').addClass('active');
-//     setTimeout(function () {
-//         jQuery('.success-modal-main, .overlay-layer').removeClass('active');
-//     }, 2000);
-// }
-//
 //----------------------------------
 //     Modal   Main
 //---------------------------------------
@@ -456,22 +221,6 @@ function OpenModal() {
 
 }
 
-//
-//
-// //----------------------------------
-// //    First slider scroll
-// //---------------------------------------
-//
-// function scrollFirstSlider() {
-//     "use strict";
-//     jQuery(".home-slider_arrow-down").click(function () {
-//         jQuery('html, body').animate({
-//             scrollTop: jQuery(".home-about").offset().top - 80
-//         }, 1000);
-//         return false;
-//     });
-// }
-//
 
 
 //----------------------------------
@@ -493,7 +242,7 @@ function reviewSlider() {
                     breakpoint: 690,
                     settings: {
                         arrows: false,
-                        dots: false,
+                        dots: true,
                     }
                 }
             ],
@@ -775,7 +524,7 @@ function serviceCarouselQA() {
                     }
                 },
                 {
-                    breakpoint: 768,
+                    breakpoint: 994,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 2,

@@ -51,7 +51,7 @@
                                  data-src="<?= wp_get_attachment_image_src(get_post_thumbnail_id($post_id), "service-home-img")[0]; ?>"></div>
                         </a>
                         <?php  if ($i == '0') { ?>
-                            <a href="#" class="link  link-button">
+                            <a href="/portfolio/" class="link  link-button">
                                 Больше наших работ
                             </a>
                         <?php  } ?>

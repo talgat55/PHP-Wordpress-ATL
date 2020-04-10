@@ -209,6 +209,7 @@ $bermuda: #77D7B9
 
 .mobile-menu
   position: fixed
+  overflow-y: auto
   top: 0
   left: 0
   visibility: hidden
@@ -1741,7 +1742,19 @@ textarea
 
       &__text
         font-size: 15px
+        max-height: 300px
+        overflow: hidden
+        overflow-y: auto
+        padding-right: 15px
+        &::-webkit-scrollbar-track
+          -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3)
+          background-color: #fff
+        &::-webkit-scrollbar
+          width: 6px
+          background-color: #fff
 
+        &::-webkit-scrollbar-thumb
+          background-color: var(--theme-alt-color)
         ul
           margin: 10px 0 0
           padding-left: 20px
@@ -1905,6 +1918,147 @@ textarea
   &:hover
     opacity: .5
 
+#success-modal
+  h3
+    text-align: center
+
+#review-modal
+  overflow-y: auto
+
+
+#review-modal,
+#promo-modal,
+#service-modal
+  .modal-dialog
+    border: none
+    border-radius: 23px
+    overflow: hidden
+    position: relative
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      bottom: -30px
+      right: -128px
+      width: 553px
+      height: 323px
+      background: url(../images/bg-modal.png)
+      background-repeat: no-repeat!important
+  .modal-dialog
+    max-width: 430px
+  .close
+    position: absolute
+    right: 16px
+    top: 14px
+  .submit-wrapper
+    position: relative
+    z-index: 2
+    .ajax-loader
+      position: absolute
+      top: 18px
+      left: 41px
+  .modal-header
+    padding: 0
+    border: none
+    margin-bottom: 45px
+  .modal-content
+    padding: 35px
+    border: none
+  .title
+    font-size: 16px
+    text-align: left
+    margin: 0
+
+  .row-custom
+    span
+      position: relative
+      margin-bottom: 20px
+      display: inline-block
+      width: 100%
+      &:before
+        position: absolute
+        content: ""
+        display: block
+        width: 102%
+        height: 39.3px
+        border: 1px solid #f1f1f1
+        border-radius: 40px
+        left: -4px
+        top: -5px
+
+  .modal-body
+    padding: 0
+    .policy-block
+      position: relative
+      p
+        padding-left: 10px
+      a
+        text-decoration: underline
+
+    .container_checkbox input
+      position: absolute
+      opacity: 0
+      cursor: pointer
+      height: 0
+      width: 0
+
+    .checkmark
+      position: absolute
+      top: 0
+      left: 0
+      height: 30px
+      width: 30px
+      border-radius: 50%
+      background-color: #f1f1f1
+
+    .container_checkbox:hover input ~ .checkmark
+      background-color: #f1f1f1
+
+    .container_checkbox input:checked ~ .checkmark
+      background-color: #f1f1f1
+
+    .checkmark:before,
+    .checkmark:after
+      content: ""
+      position: absolute
+      display: none
+
+    .checkmark:before
+      display: block
+      content: ""
+      width: 38px
+      height: 38px
+      border: 1px solid #F1F1F1
+      border-radius: 50%
+      top: -4px
+      left: -4px
+
+    .container_checkbox input:checked ~ .checkmark:after
+      display: block
+
+    .container_checkbox .checkmark:after
+      left: 8px
+      top: 10px
+      background: url(../images/check-mark.png)
+      background-repeat: no-repeat !important
+      width: 15px
+      height: 12px
+      content: ""
+
+  .container_checkbox
+    margin-right: 0
+    width: 60px
+  .wpcf7-submit
+    background: #fff!important
+    color: var(--theme-alt-color)
+    margin-top: 40px
+  div.wpcf7-validation-errors,
+  div.wpcf7-acceptance-missing
+    position: relative
+    z-index: 4
+    background: #fff
+
+
 @media (max-width: 1370px)
   .postid-227
     .header:before
@@ -1968,6 +2122,9 @@ textarea
           top: 108px
 
 @media (max-width: 993px)
+  .mobile-menu a
+    img
+      display: none
   .postid-165 .banner-section
     padding-bottom: 29px
     padding-top: 15px!important
@@ -2141,6 +2298,16 @@ textarea
   .postid-16
     .banner-section
       padding-top: 46px !important
+  .header
+    z-index: 1000
+
+  .postid-14 .banner-section
+    padding-top: 45px!important
+
+
+@media (max-width: 865px)
+  .header .header-call_block
+    display: none!important
 
 @media (max-width: 768px)
   .service
@@ -2149,8 +2316,7 @@ textarea
 
     &__title
       background-color: #fff
-  .header
-    z-index: 1000
+
   .feedback__first
     width: 100%
   .feedback__list-soc-links
@@ -2194,9 +2360,7 @@ textarea
   .single-services
     .hero
       background-position: 50% 0 !important
-  .mobile-menu a
-    img
-      display: none
+
 
 @media (max-width: 678px)
   .header-call_block,
@@ -2210,8 +2374,16 @@ textarea
     padding: 0 15px
   .postid-227 .banner-section
     padding: 35px 0 40px !important
+  #review-modal,
+  #promo-modal,
+  #service-modal
+    .modal-dialog
+      max-width: 100%
 
 @media (max-width: 600px)
+  .postid-20
+    .header:before
+      background-position: 0 -188px !important
   .single-services .banner-section
     padding-top: 36px !important
     padding-bottom: 30px
@@ -2291,9 +2463,22 @@ textarea
     padding-bottom: 0
 
 
+  .home_slide-content_block-promo
+    width: 63%
+    margin: 0 auto
 
+  .review
+    background: transparent!important
+    .review__bottom-title
+      color: #000
+      padding: 0 10px
+    .review__bottom .link
+      color: var(--theme-color)
+      border-color: var(--theme-color)
 
-
+    .slick-dots
+      bottom: -10px!important
+      left: 0
 
 
 

@@ -51,7 +51,7 @@ $file_presentation = get_field('file_presentation', 'option');
             </div>
         </div>
 
-        <div class="row d-flex w-100 justify-content-center">
+        <div class="row d-flex   justify-content-center">
 
             <a href="<?php echo $file_presentation; ?> "  target="_blank" class="link-download">
                 <div class="link-download_wrap">
