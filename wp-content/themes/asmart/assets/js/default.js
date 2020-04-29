@@ -13,7 +13,7 @@ jQuery(document).ready(function () {
     clientsCarousel();
     scrollToDiv();
     // backToTop();
-
+    fixedHeader();
     OpenModal();
     partnersCarousel();
     reviewSlider();
@@ -47,6 +47,21 @@ jQuery(document).ready(function () {
 window.onload = function () {
     map();
 };
+//----------------------------------
+//   fixed header
+//---------------------------------------
+
+function fixedHeader() {
+    "use strict";
+
+    jQuery(window).scroll(function () {
+        var sticky = jQuery('.header'),
+            scroll = jQuery(window).scrollTop();
+
+        if (scroll > 0) sticky.addClass('fixed');
+        else sticky.removeClass('fixed');
+    });
+}
 
 //----------------------------------
 //   Lasyload
@@ -191,8 +206,6 @@ function OpenModal() {
     });
 
 
-
-
     jQuery(".single-services .banner-section .link_alt-theme").click(function () {
         jQuery('#service-modal').fadeIn().addClass('in show');
         jQuery(' .overlay-layer').addClass('active');
@@ -202,15 +215,12 @@ function OpenModal() {
         return false;
     });
 
-     jQuery(".review .review__bottom .link").click(function () {
+    jQuery(".review .review__bottom .link").click(function () {
         jQuery('#review-modal').fadeIn().addClass('in show');
         jQuery(' .overlay-layer').addClass('active');
 
         return false;
     });
-
-
-
 
 
     jQuery("#promo-modal .close, #service-modal .close, #review-modal .close, #success-modal .close").click(function () {
@@ -220,7 +230,6 @@ function OpenModal() {
     });
 
 }
-
 
 
 //----------------------------------
@@ -565,36 +574,39 @@ function serviceCarouselQA() {
 function scrollToDiv() {
     "use strict";
     if (jQuery('body').hasClass('home')) {
-        jQuery(document).on('click', 'a[href^="#"]', function (e) {
+        jQuery(document).on('click', ' #menu-mobile a[href^="#"]', function (e) {
+
             var thisId = jQuery(this).attr("href");
             e.preventDefault();
 
             var position = jQuery(thisId).offset().top;
 
             jQuery("body, html").animate({
-                scrollTop: position
+                scrollTop: position - 100
             }, 'slow');
+            jQuery("body").removeClass('open');
 
         });
     }
 }
+
 //----------------------------------
 //    Ajax load data
 //---------------------------------------
 function ajaxLoadData() {
     "use strict";
-    var thisBody =  jQuery(document);
+    var thisBody = jQuery(document);
     // load portfolio
-        thisBody.on('click', '.archive .link_alt.load-more', function (e) {
+    thisBody.on('click', '.archive .link_alt.load-more', function (e) {
         e.preventDefault();
-        var thisClick =  jQuery(this);
-            thisClick.addClass('load');
+        var thisClick = jQuery(this);
+        thisClick.addClass('load');
         var $page = thisClick.attr('data-page');
         var data = {
             action: 'be_ajax_portfolio_load',
             page: $page
         };
-        jQuery(this).attr('data-page' , ++$page );
+        jQuery(this).attr('data-page', ++$page);
         jQuery.post(myajax.url, data, function (res) {
             if (res.success) {
                 if (res.data != '') {
@@ -602,13 +614,12 @@ function ajaxLoadData() {
                     jQuery('.page-portfolio__list-items')
                         .append(res.data.data);
 
-                        var countCurrentItem =  jQuery('.page-portfolio__list-items li').length;
-                        var ajaxCount = res.data.count.publish;
+                    var countCurrentItem = jQuery('.page-portfolio__list-items li').length;
+                    var ajaxCount = res.data.count.publish;
 
-                        if(countCurrentItem == ajaxCount || countCurrentItem  > ajaxCount){
-                            jQuery('.archive .link_alt.load-more').fadeOut();
-                        }
-
+                    if (countCurrentItem == ajaxCount || countCurrentItem > ajaxCount) {
+                        jQuery('.archive .link_alt.load-more').fadeOut();
+                    }
 
 
                 } else {
@@ -626,14 +637,14 @@ function ajaxLoadData() {
     //
     thisBody.on('click', '.page-reviews .load-more', function (e) {
         e.preventDefault();
-        var thisClick =  jQuery(this);
+        var thisClick = jQuery(this);
         thisClick.addClass('load');
         var $page = jQuery(this).attr('data-page');
         var data = {
             action: 'be_ajax_review_load',
             page: $page,
         };
-        jQuery(this).attr('data-page' , ++$page );
+        jQuery(this).attr('data-page', ++$page);
 
         jQuery.post(myajax.url, data, function (res) {
             if (res.success) {
@@ -642,13 +653,12 @@ function ajaxLoadData() {
                     jQuery('.page-reviews__list-items')
                         .append(res.data.data);
 
-                    var countCurrentItem =  jQuery('.page-reviews__list-items li').length;
+                    var countCurrentItem = jQuery('.page-reviews__list-items li').length;
                     var ajaxCount = res.data.count.publish;
 
-                    if(countCurrentItem == ajaxCount || countCurrentItem  > ajaxCount){
+                    if (countCurrentItem == ajaxCount || countCurrentItem > ajaxCount) {
                         jQuery('.page-reviews .load-more').fadeOut();
                     }
-
 
 
                 } else {
@@ -661,15 +671,15 @@ function ajaxLoadData() {
         return false;
     });
 }
+
 document.addEventListener('wpcf7mailsent', function (event) {
 
     jQuery('.modal').hide().removeClass('in show');
     jQuery('#success-modal').fadeIn().addClass('in show');
-    setTimeout(function(){
+    setTimeout(function () {
         jQuery(' .overlay-layer').removeClass('active');
         jQuery('#success-modal').hide().removeClass('in show');
-    },2000);
-
+    }, 2000);
 
 
     // if (event.detail.contactFormId == "51") {

@@ -63,6 +63,7 @@ $phone_number = get_field('number_phone', 'option');
             </div>
         </div>
     </header>
+    <div class="header_fixed"> </div>
     <div class="mobile-menu d-flex w-100   justify-content-center">
         <div>
             <?php wp_nav_menu('container=div&menu_id=menu-mobile&menu_class=mobile-main-container clearfix&theme_location=top_menu'); ?>
