@@ -11,12 +11,16 @@ $indigo: #000
 $danube: #000
 $white: #fff
 $bermuda: #77D7B9
+$theme_color: #5f247d
+$theme_color_alt: #1bb684
+$gray_color: #2a2d2f
+
 .main-title
   text-align: center
   font-weight: bold
   font-size: 24px
   margin: 0 0 40px
-  color: var(--gray-color)
+  color: $gray_color
   text-transform: uppercase
 
   &__alt
@@ -34,8 +38,8 @@ $bermuda: #77D7B9
   border-radius: 30px
 
   &:hover
-    background-color: var(--theme-color)
-    border-color: var(--theme-color)
+    background-color: $theme_color
+    border-color: $theme_color
     color: #fff
     text-decoration: none
 
@@ -48,18 +52,18 @@ $bermuda: #77D7B9
     padding: 15px 50px
 
   &_alt
-    background-color: var(--theme-color)
-    border-color: var(--theme-color)
+    background-color: $theme_color
+    border-color: $theme_color
     color: #fff
 
     &:hover
-      background-color: var(--theme-alt-color)
-      border-color: var(--theme-alt-color)
+      background-color: $theme_color_alt
+      border-color: $theme_color_alt
       color: #fff
 
   &_alt-theme
-    border-color: var(--theme-alt-color)
-    background-color: var(--theme-alt-color)
+    border-color: $theme_color_alt
+    background-color: $theme_color_alt
     color: #fff
 
   &.load
@@ -94,7 +98,7 @@ $bermuda: #77D7B9
     .main-main-container
       .menu-item
         a
-          color: var(--white-color)
+          color: #fff
 
 .page-template .header,
 .post-type-archive-portfolio .header
@@ -351,7 +355,7 @@ $bermuda: #77D7B9
       a
         position: relative
         text-decoration: none
-        color: var(--black-color)
+        color: #000
         transition: all .3s
         padding-right: 22px
         text-transform: uppercase
@@ -440,8 +444,8 @@ $bermuda: #77D7B9
       display: inline-block
       padding: 16px 44px
       border-radius: 30px
-      background-color: var(--theme-color)
-      color: var(--white-color)
+      background-color: $theme_color
+      color: #fff
       text-decoration: none
       transition: all .3s
 
@@ -480,16 +484,16 @@ $bermuda: #77D7B9
         font-size: 48px
         font-weight: bold
         margin-bottom: 10px
-        color: var(--theme-color)
+        color: $theme_color
 
       &-title
         margin: 0 0 0
         font-size: 18px
         font-weight: 300
-        color: var(--black-color)
+        color: #000
 
   .link-download
-    border: 1px solid var(--theme-color)
+    border: 1px solid $theme_color
     position: relative
     padding: 5px
     border-radius: 49px
@@ -500,7 +504,7 @@ $bermuda: #77D7B9
 
     &_wrap
       border-radius: 49px
-      background-color: var(--theme-color)
+      background-color: $theme_color
       color: #fff
       text-decoration: none
       padding: 2px 2px
@@ -592,7 +596,7 @@ $bermuda: #77D7B9
       margin: 0
       font-weight: 400
       font-size: 19px
-      color: var(--theme-color)
+      color: $theme_color
       position: relative
       padding: 0 20px
 
@@ -602,7 +606,7 @@ $bermuda: #77D7B9
 
     &:hover
       .service__text-more
-        background-color: var(--theme-color) !important
+        background-color: $theme_color !important
         color: #fff !important
 
   &__text-more
@@ -614,7 +618,7 @@ $bermuda: #77D7B9
     font-size: 16px
     text-align: center
     padding: 16px 0
-    color: var(--theme-color)
+    color: $theme_color
     transition: all .3s
 
   &__tag-new
@@ -766,7 +770,7 @@ $bermuda: #77D7B9
       margin: 0
       font-size: 18px
       font-weight: 400
-      color: var(--theme-color)
+      color: $theme_color
       position: relative
       z-index: 3
 
@@ -777,7 +781,7 @@ $bermuda: #77D7B9
     color: #fff
     text-decoration: none
     transition: all .3s
-    background-color: var(--theme-color)
+    background-color: $theme_color
     border-radius: 39px
     padding: 16.5px 40px
     border: none
@@ -787,7 +791,7 @@ $bermuda: #77D7B9
 
     &:hover
       text-decoration: none
-      background-color: var(--theme-alt-color)
+      background-color: $theme_color_alt
       color: #fff
 
 
@@ -895,7 +899,7 @@ $bermuda: #77D7B9
     margin: 0 0 12px
 
     span
-      color: var(--theme-alt-color)
+      color: $theme_color_alt
 
   &__bottom-img
     display: block
@@ -924,7 +928,7 @@ $bermuda: #77D7B9
 
     .slick-active
       button
-        background-color: var(--theme-color)
+        background-color: $theme_color
 
 
 //
@@ -993,7 +997,7 @@ $bermuda: #77D7B9
 
     .slick-active
       button
-        background-color: var(--theme-color)
+        background-color: $theme_color
 
 
 //
@@ -1034,7 +1038,7 @@ $bermuda: #77D7B9
 
     .slick-active
       button
-        background-color: var(--theme-color)
+        background-color: $theme_color
 
 //
 // Page Portoflio
@@ -1340,7 +1344,7 @@ $bermuda: #77D7B9
     margin: 0 0 10px
 
     span
-      color: var(--theme-alt-color)
+      color: $theme_color_alt
 
   &__text
     font-weight: 300
@@ -1429,11 +1433,11 @@ $bermuda: #77D7B9
 
       a
         text-decoration: underline
-        color: var(--theme-color)
+        color: $theme_color
         transition: all .3s
 
         &:hover
-          color: var(--theme-alt-color)
+          color: $theme_color_alt
           text-decoration: none
 
 
@@ -1581,7 +1585,7 @@ textarea
 
       .slick-active
         button
-          background-color: var(--theme-color)
+          background-color: $theme_color
 
   .advantages-alt
     padding-top: 100px
@@ -1702,7 +1706,7 @@ textarea
       text-align: center
 
       span
-        color: var(--theme-alt-color)
+        color: $theme_color_alt
 
     &__wrapper_first
       text-align: left
@@ -1756,7 +1760,7 @@ textarea
           background-color: #fff
 
         &::-webkit-scrollbar-thumb
-          background-color: var(--theme-alt-color)
+          background-color: $theme_color_alt
         ul
           margin: 10px 0 0
           padding-left: 20px
@@ -1770,7 +1774,7 @@ textarea
               display: block
               width: 7px
               height: 7px
-              background: var(--theme-alt-color)
+              background: $theme_color_alt
               border-radius: 50%
               position: absolute
               top: 6px
@@ -1848,7 +1852,7 @@ textarea
 
       &:hover
         text-decoration: none
-        color: var(--theme-color)
+        color: $theme_color
 
   .footer-logo
     padding: 10px 0
@@ -1882,7 +1886,7 @@ textarea
   .policy-block
     display: flex
     a
-      color: var(--theme-color)
+      color: $theme_color
 
   .container_checkbox
     margin-right: 10px
@@ -2052,7 +2056,7 @@ textarea
     width: 60px
   .wpcf7-submit
     background: #fff!important
-    color: var(--theme-alt-color)
+    color: $theme_color_alt
     margin-top: 40px
   div.wpcf7-validation-errors,
   div.wpcf7-acceptance-missing
@@ -2061,7 +2065,7 @@ textarea
     background: #fff
 
 .header_fixed
-  height: 114px
+  height: 113px
 .div.wpcf7-response-output
   position: relative
   z-index: 2
@@ -2445,6 +2449,13 @@ div.wpcf7-mail-sent-ok
     padding: 0 10px
   .about-alt .main-title
     padding: 0 10px
+  .modal
+    padding-top: 66px
+@media (orientation: landscape)
+  .modal
+    overflow-y: auto
+  #review-modal
+    padding-top: 180px
 
 @media (max-width: 576px)
   header
@@ -2486,17 +2497,19 @@ div.wpcf7-mail-sent-ok
       color: #000
       padding: 0 10px
     .review__bottom .link
-      color: var(--theme-color)
-      border-color: var(--theme-color)
+      color: $theme_color
+      border-color: $theme_color
 
     .slick-dots
       bottom: -10px!important
       left: 0
 
+  .review .main-title
+    color: #3d3d3d
 
 
-
-
+  .home-portfolio
+    padding-bottom: 40px
 
 
 

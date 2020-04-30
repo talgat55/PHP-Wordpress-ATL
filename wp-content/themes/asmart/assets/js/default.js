@@ -20,7 +20,7 @@ jQuery(document).ready(function () {
     awardsCarousel();
     serviceCarousel();
     serviceCarouselQA();
-
+    formHandler();
     //
     // Lazy load
     //
@@ -60,6 +60,21 @@ function fixedHeader() {
 
         if (scroll > 0) sticky.addClass('fixed');
         else sticky.removeClass('fixed');
+    });
+}
+//----------------------------------
+//   Form handler
+//---------------------------------------
+
+function formHandler() {
+    "use strict";
+
+    jQuery('form').submit(function () {
+        var phoneNumber = jQuery(this).find('.phone-input').val();
+        if(phoneNumber.length < 17){
+            alert();
+        }
+
     });
 }
 
