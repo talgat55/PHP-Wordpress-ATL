@@ -434,6 +434,10 @@
           bottom: -7px;
           left: -6px;
           width: 100%; }
+      .header .main-main-container .menu-item.menu-item-home a {
+        font-weight: 400; }
+        .header .main-main-container .menu-item.menu-item-home a:before {
+          display: none !important; }
       .header .main-main-container .menu-item a {
         position: relative;
         text-decoration: none;

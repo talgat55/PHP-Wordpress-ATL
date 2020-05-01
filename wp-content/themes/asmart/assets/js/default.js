@@ -260,7 +260,8 @@ function reviewSlider() {
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
-            arrows: true,
+            autoplay: true,
+            autoplaySpeed: 4000,
             responsive: [
                 {
                     breakpoint: 690,
@@ -270,7 +271,7 @@ function reviewSlider() {
                     }
                 }
             ],
-            autoplay: true,
+
         });
     }
 }
@@ -293,6 +294,7 @@ function awardsCarousel() {
             arrows: false,
             dots: true,
             autoplay: true,
+            autoplaySpeed: 4000,
             responsive: [
                 {
                     breakpoint: 1100,
